@@ -1,20 +1,58 @@
 @import "tailwindcss";
 
 :root {
+    /* TODO: update the colors to match the design system */
     --background: #ededed;
     --foreground: #171717;
 
-    /* Beige */
+    /* Primary Colors */
+    --white: #ffffff;
     --beige-100: #f8f4f0;
+    --beige-300: rgb(247, 247, 242);
     --beige-500: #98908b;
 
-    /* Grey */
     --grey-900: #201f24;
     --grey-500: #696868;
     --grey-300: #b3b3b3;
+    --grey-100: #f2f2f2;
+
+    /* Secondary Colors */
+    --green: #277c78;
+    --yellow: #f2cdac;
+    --cyan: #82c9d7;
+    --navy: #626070;
+    --red: #c94736;
+    --purple: #826cb0;
+
+    /* Other Colors */
+    --light-purple: #af81ba;
+    --turquoise: #597c7c;
+    --brown: #93674f;
+    --magenta: #934f6f;
+    --blue: #3f82b2;
+    --navy-green: #97a0ac;
+    --army-green: #7f9161;
+    --gold: #cab361;
+    --orange: #be6c49;
+
+    /* Typography */
+    --font-size-xl: 2rem; /* 32px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-md: 1rem; /* 16px */
+    --font-size-sm: 0.875rem; /* 14px */
+
+    /* Spacing */
+    --spacing-xxl: 2.5rem; /* 64px */
+    --spacing-xl: 2rem; /* 32px */
+    --spacing-lg: 1.5rem; /* 24px */
+    --spacing-md: 1.25rem; /* 20px */
+    --spacing-sm: 1rem; /* 16px */
+    --spacing-xs: 0.75rem; /* 12px */
+    --spacing-xxs: 0.5rem; /* 8px */
+    --spacing-xxxs: 0.25rem; /* 4px */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
         --foreground: #ededed;
@@ -24,5 +62,4 @@
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
-}
+} */
