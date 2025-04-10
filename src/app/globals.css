@@ -40,6 +40,7 @@
     --font-size-lg: 1.25rem; /* 20px */
     --font-size-md: 1rem; /* 16px */
     --font-size-sm: 0.875rem; /* 14px */
+    --font-size-xs: 0.75rem; /* 12px */
 
     /* Spacing */
     --spacing-xxl: 2.5rem; /* 64px */

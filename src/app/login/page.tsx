@@ -2,8 +2,12 @@
 
 import Image from "next/image";
 import logo from "../../../public/assets/images/logo-large.svg";
+import authImg from "../../../public/assets/images/illustration-authentication.svg";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+
+import LoginForm from "@/components/LoginForm";
+import SignupForm from "@/components/SignupForm";
 
 export default function Login() {
     const [formType, setFormType] = useState("login");
@@ -15,32 +19,21 @@ export default function Login() {
     });
 
     return (
+        // TODO: Add password visible icon
         <>
-            <header className="flex justify-center items-center bg-[var(--grey-900)] py-[var(--spacing-lg)] rounded-b-lg">
+            <header className="flex justify-center items-center bg-[var(--grey-900)] py-[var(--spacing-lg)] rounded-b-lg md:hidden">
                 <Image src={logo} width={150} height={80} alt="logo" />
             </header>
-            <main className="flex flex-col justify-center items-center bg-[var(--beige-300)] h-full">
-                <div id="login-form">
-                    {formType === "login" && (
-                        <form className="bg-[var(--white)] px-[var(--spacing-md)] py-[var(--spacing-lg)] rounded-xl mx-4 ">
-                            <h1 className="text-[length:var(--font-size-xl)] font-bold leading-[120%]">Login</h1>
-                            <label htmlFor="email">Email</label>
-                            <input
-                                id="email"
-                                type="email"
-                                placeholder="Username"
-                                className="w-full border-[1px] border-[var(--grey-900)] rounded-lg"
-                                {...register("email")}
-                            />
-                            <label htmlFor="password">Password</label>
-                            <input id="password" type="password" placeholder="Password" {...register("password")} />
-                            <button
-                                type="submit"
-                                className="bg-[var(--grey-900)] font-bold text-[var(--white)] text-[length:var(--font-size-sm)] rounded-lg px-4 py-[var(--spacing-sm)] mt-4 w-full">
-                                Login
-                            </button>
-                        </form>
-                    )}
+            <header className="hidden md:block md:p-[var(--spacing-md)] md:w-[600px]">
+                <div
+                    style={{
+                        backgroundImage: `url(../../../public/assets/images/illustration-authentication.svg)`,
+                    }}></div>
+            </header>
+            <main className="flex flex-col justify-center items-center bg-[var(--beige-300)] px-[var(--spacing-md)] h-full md:mx-auto">
+                <div className="flex flex-col w-full bg-[var(--white)] px-[var(--spacing-md)] py-[var(--spacing-lg)] rounded-xl max-w-[562px]">
+                    {formType === "login" && <LoginForm setFormType={setFormType} register={register} />}
+                    {formType === "sign-up" && <SignupForm setFormType={setFormType} register={register} />}
                 </div>
             </main>
         </>

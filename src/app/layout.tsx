@@ -24,9 +24,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`h-screen ${publicSans.variable} ${publicSansItalic.variable} antialiased`}>
-                {children}
-            </body>
+            <body className={`h-screen font-[family-name:var(${publicSans.variable})] antialiased`}>{children}</body>
         </html>
     );
 }
