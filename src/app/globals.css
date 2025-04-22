@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@font-face {
+    font-family: "PublicSans";
+    src: url("/assets/fonts/PublicSans-VariableFont-wght.ttf") format("truetype");
+}
 
 :root {
     /* TODO: update the colors to match the design system */
@@ -48,19 +52,34 @@
     --spacing-lg: 1.5rem; /* 24px */
     --spacing-md: 1.25rem; /* 20px */
     --spacing-sm: 1rem; /* 16px */
+    --spacing-s: 0.875rem; /* 14px */
     --spacing-xs: 0.75rem; /* 12px */
     --spacing-xxs: 0.5rem; /* 8px */
     --spacing-xxxs: 0.25rem; /* 4px */
-}
 
-/* @media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
+    /* Component Styles */
+    --card-bg: var(--white);
+    --card-padding: var(--spacing-md);
+    --card-padding-lg: var(--spacing-xl);
+    --card-border-radius: 12px;
+
+    /* Breakpoints */
+    @theme {
+        --breakpoint-lg-xtra: 1370px;
     }
 }
 
-body {
-    background: var(--background);
-    color: var(--foreground);
-} */
+html {
+    font-family: "PublicSans", sans-serif;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion) {
+    html {
+        animation: none !important;
+    }
+}
