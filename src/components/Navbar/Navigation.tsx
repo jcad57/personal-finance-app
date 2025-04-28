@@ -1,8 +1,8 @@
-import homeIcon from "../../../../public/assets/images/icon-nav-overview.svg";
-import transactionsIcon from "../../../../public/assets/images/icon-nav-transactions.svg";
-import budgetIcon from "../../../../public/assets/images/icon-nav-budgets.svg";
-import potsIcon from "../../../../public/assets/images/icon-nav-pots.svg";
-import billsIcons from "../../../../public/assets/images/icon-nav-recurring-bills.svg";
+import homeIcon from "../../../public/assets/images/icon-nav-overview.svg";
+import transactionsIcon from "../../../public/assets/images/icon-nav-transactions.svg";
+import budgetIcon from "../../../public/assets/images/icon-nav-budgets.svg";
+import potsIcon from "../../../public/assets/images/icon-nav-pots.svg";
+import billsIcons from "../../../public/assets/images/icon-nav-recurring-bills.svg";
 import NavIcon from "./NavIcon";
 
 // TODO: properly set up SVG files

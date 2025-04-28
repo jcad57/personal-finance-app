@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import iconCaretRight from "../../../public/assets/images/icon-caret-right.svg";
+import { useRouter } from "next/navigation";
 
 export default function OverviewCard({
     title,
@@ -13,12 +15,17 @@ export default function OverviewCard({
     viewAll?: boolean;
     limit?: number;
 }) {
+    const router = useRouter();
     return (
         <div className="grid bg-[var(--card-bg)] p-[var(--card-padding)] lg:p-[var(--card-padding-lg)] rounded-[var(--card-border-radius)] gap-[var(--spacing-md)]">
             <div className="flex justify-between">
                 <h2 className="text-[length:var(--font-size-lg)] font-bold">{title}</h2>
 
-                <div className="flex gap-[var(--spacing-xs)] items-center">
+                <div
+                    className="flex gap-[var(--spacing-xs)] items-center  cursor-pointer"
+                    onClick={() => {
+                        router.push(`/${title.toLowerCase()}`);
+                    }}>
                     <span className="text-[var(--grey-500)] text-[length:var(--font-size-sm)]">
                         {seeDetails && "See Details"}
                         {viewAll && "View All"}

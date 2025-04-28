@@ -1,6 +1,14 @@
-import { formatCurrency } from "@/lib/helpers";
+import { formatCurrency } from "@/_lib/helpers";
 
-export default function TextCard({ title, value, primary }: { title: string; value: number; primary?: boolean }) {
+export default function OverviewCardBasic({
+    title,
+    value,
+    primary,
+}: {
+    title: string;
+    value: number;
+    primary?: boolean;
+}) {
     return (
         <div
             className={`flex flex-col md:grow gap-[var(--spacing-xs)] p-[var(--card-padding)] rounded-[var(--card-border-radius)] ${

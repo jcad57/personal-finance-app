@@ -1,25 +1,11 @@
 import Image from "next/image";
-import { formatCurrency, formatDate } from "../../../lib/helpers";
-export default function TransactionOverviewItem({
-    avatar,
-    name,
-    category,
-    date,
-    amount,
-    recurring,
-}: {
-    avatar: string;
-    name: string;
-    category: string;
-    date: string;
-    amount: number;
-    recurring: boolean;
-}) {
+import { formatCurrency, formatDate } from "@/_lib/helpers";
+import { TransactionOverviewItemProps } from "@/_lib/types";
+export default function TransactionOverviewItem({ avatar, name, date, amount }: TransactionOverviewItemProps) {
     return (
         <div className="flex justify-between [&:not(:first-child)]:border-t-[1px] [&:not(:last-child)&:not(:first-child)]:py-[var(--spacing-md)] [&:last-child]:pt-[var(--spacing-md)] [&:first-child]:pb-[var(--spacing-md)] border-[var(--grey-100)]">
             <div className="flex gap-[var(--spacing-sm)] items-center">
-                {/* <Image src={avatar} width={32} height={32} alt="avatar" /> */}
-                <div className="w-[32px] h-[32px] bg-[grey] rounded-full"></div>
+                <Image src={avatar} width={32} height={32} alt="avatar" className="rounded-full" />
                 {name}
             </div>
             <div className={`flex flex-col items-center gap-[var(--spacing-xxs)]`}>

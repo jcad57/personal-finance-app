@@ -1,17 +1,16 @@
 import Image from "next/image";
 
-import iconCaretRight from "../../../public/assets/images/icon-caret-right.svg";
-import totalSavedIcon from "../../../public/assets/images/icon-pot.svg";
-import TinyPot from "./TinyPot";
+import TinyPot from "@/components/Dashboard/Pots/TinyPot";
+import OverviewCardDetailed from "@/components/Layout/OverviewCardDetailed";
+import totalSavedIcon from "../../../../public/assets/images/icon-pot.svg";
 
-import data from "../../../public/data.json";
-import OverviewCard from "../Layout/OverviewCard";
+import data from "../../../../public/data.json";
 
 const potsOverview = data.pots.slice(0, 4);
 
 export default function PotsOverview({ totalSaved }: { totalSaved: number }) {
     return (
-        <OverviewCard title="Pots" seeDetails>
+        <OverviewCardDetailed title="Pots" seeDetails>
             <div className="grid gap-[var(--spacing-sm)] md:grid-cols-2 ">
                 <div className="flex align-center p-[var(--card-padding)] gap-[var(--spacing-sm)] bg-[var(--beige-100)] rounded-[var(--card-border-radius)]">
                     <Image src={totalSavedIcon} alt="" />
@@ -26,6 +25,6 @@ export default function PotsOverview({ totalSaved }: { totalSaved: number }) {
                     ))}
                 </div>
             </div>
-        </OverviewCard>
+        </OverviewCardDetailed>
     );
 }

@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/lib/helpers";
+import { formatCurrency } from "@/_lib/helpers";
 
 export default function TinyPot({ title, amount, color }: { title?: string; amount: number; color: string }) {
     return (

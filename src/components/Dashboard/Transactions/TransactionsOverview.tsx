@@ -1,10 +1,12 @@
-import OverviewCard from "../../Layout/OverviewCard";
+import OverviewCard from "../../Layout/OverviewCardDetailed";
 import TransactionOverviewItem from "./TransactionOverviewItem";
 
-import { DataTypes, TransactionOverviewItemProps } from "@/lib/types";
+import { getAllTransactions } from "@/_lib/data-services";
+import { TransactionOverviewItemProps } from "@/_lib/types";
 
-export default function TransactionsOverview({ data }: { data: DataTypes }) {
-    const transactionOverview = Array.from(data.transactions).slice(0, 5);
+export default async function TransactionsOverview() {
+    const allTransactions = await getAllTransactions();
+    const transactionOverview = Array.from(allTransactions).slice(0, 5);
     return (
         <OverviewCard title="Transactions" viewAll>
             <div className="flex flex-col">
@@ -13,10 +15,8 @@ export default function TransactionsOverview({ data }: { data: DataTypes }) {
                         key={transaction.date}
                         avatar={transaction.avatar}
                         name={transaction.name}
-                        category={transaction.category}
                         date={transaction.date}
                         amount={transaction.amount}
-                        recurring={transaction.recurring}
                     />
                 ))}
             </div>

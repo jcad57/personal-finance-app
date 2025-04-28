@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
     const router = useRouter();
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         if (!isLoggedIn) {

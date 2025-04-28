@@ -6,8 +6,8 @@ import logo from "../../../public/assets/images/logo-large.svg";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
-import LoginForm from "@/components/LoginForm";
-import SignupForm from "@/components/SignupForm";
+import LoginForm from "@/components/Auth/LoginForm";
+import SignupForm from "@/components/Auth/SignupForm";
 
 const authImg = "/assets/images/illustration-authentication.svg";
 export default function Login() {
@@ -21,7 +21,7 @@ export default function Login() {
 
     return (
         // TODO: Add password visible icon
-        <>
+        <div className="bg-[var(--beige-300)] flex flex-col h-screen lg:flex lg:flex-row lg:p-[var(--spacing-lg)]">
             <header className="flex justify-center items-center bg-[var(--grey-900)] py-[var(--spacing-lg)] rounded-b-lg lg:hidden">
                 <Image src={logo} width={150} height={80} alt="logo" />
             </header>
@@ -47,6 +47,6 @@ export default function Login() {
                     {formType === "sign-up" && <SignupForm setFormType={setFormType} register={register} />}
                 </div>
             </main>
-        </>
+        </div>
     );
 }
