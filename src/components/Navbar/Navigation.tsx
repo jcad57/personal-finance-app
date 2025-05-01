@@ -1,37 +1,36 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { links } from "@/_lib/links";
 
-import homeIcon from "../../../public/assets/images/icon-nav-overview.svg";
-import transactionsIcon from "../../../public/assets/images/icon-nav-transactions.svg";
-import budgetIcon from "../../../public/assets/images/icon-nav-budgets.svg";
-import potsIcon from "../../../public/assets/images/icon-nav-pots.svg";
-import billsIcons from "../../../public/assets/images/icon-nav-recurring-bills.svg";
-import navLogo from "../../../public/assets/images/logo-large.svg";
+import navLogoFull from "../../../public/assets/images/logo-large.svg";
+import navLogoMini from "../../../public/assets/images/logo-small.svg";
 import minimizeMenuIcon from "../../../public/assets/images/icon-minimize-menu.svg";
 
 import NavIcon from "./NavIcon";
 import Image from "next/image";
 import Link from "next/link";
-
-const links = [
-    { icon: homeIcon, label: "home", text: "Overview" },
-    { icon: transactionsIcon, label: "transactions", text: "Transactions" },
-    { icon: budgetIcon, label: "budgets", text: "Budgets" },
-    { icon: potsIcon, label: "pots", text: "Pots" },
-    { icon: billsIcons, label: "recurring-bills", text: "Recurring Bills" },
-];
+import { useState } from "react";
 
 // TODO: properly set up SVG files
 export default function Navigation() {
     const pathname = usePathname();
+    const [expandNav, setExpandNav] = useState(true);
 
     return (
-        <nav className="bg-[var(--grey-900)] fixed bottom-0 w-full rounded-t-lg pt-2 px-[var(--spacing-lg)] md:px-[40px] lg:static lg:max-w-[300px] lg:px-0 lg:pr-[var(--spacing-lg)] lg:flex lg:flex-col lg:rounded-t-none lg:rounded-r-[var(--spacing-sm)] lg:pb-[var(--spacing-xxl)] z-100">
+        <nav
+            className={
+                (!expandNav && `lg:w-auto`) +
+                ` w-full bg-[var(--grey-900)] fixed bottom-0 rounded-t-lg pt-2 px-[var(--spacing-lg)] md:px-[40px] lg:static lg:max-w-[300px] lg:px-0 lg:flex lg:flex-col lg:rounded-t-none lg:rounded-r-[var(--spacing-sm)] lg:pb-[var(--spacing-xxl)] z-100`
+            }>
             <Link href="/home">
-                <Image className="hidden lg:block my-[40px] mx-[var(--spacing-xl)]" src={navLogo} alt="" />
+                <Image
+                    className={`hidden lg:block my-[40px] mx-[var(--spacing-xl)] `}
+                    src={expandNav ? navLogoFull : navLogoMini}
+                    alt=""
+                />
             </Link>
             <div className="flex flex-col justify-between flex-1">
-                <ul className="flex justify-between items-center lg:flex-col lg:gap-[var(--spacing-xxxs)] lg:pt-[var(--spacing-lg)]">
+                <ul className="flex justify-between items-center lg:flex-col lg:gap-[var(--spacing-xxxs)] lg:pt-[var(--spacing-lg)] lg:pr-[var(--spacing-lg)] ">
                     {links.map((link) => (
                         <NavIcon
                             key={link.label}
@@ -39,17 +38,23 @@ export default function Navigation() {
                             label={link.label}
                             text={link.text}
                             isActive={pathname === `/${link.label}`}
+                            expandNav={expandNav}
                         />
                     ))}
-                    {/* <NavIcon icon={homeIcon} page="home" text="Home" />
-                    <NavIcon icon={transactionsIcon} page="transactions" text="Transactions" />
-                    <NavIcon icon={budgetIcon} page="budgets" text="Budgets" />
-                    <NavIcon icon={potsIcon} page="pots" text="Pots" />
-                    <NavIcon icon={billsIcons} page="bills" text="Recurring Bills" /> */}
                 </ul>
-                <div className="hidden ml-[var(--spacing-xl)] lg:flex">
-                    <Image src={minimizeMenuIcon} alt="" className="mx-2" />
-                    <span className="ml-[20px] text-[var(--grey-300)] font-bold">Minimize Menu</span>
+                <div
+                    className="hidden pl-[var(--spacing-xl)] py-[var(--spacing-s)] mr-[var(--spacing-lg)] rounded-r-lg lg:flex hover:cursor-pointer hover:bg-[#393740] transition-colors duration-75 ease-in"
+                    onClick={() => setExpandNav(!expandNav)}>
+                    <Image
+                        src={minimizeMenuIcon}
+                        alt=""
+                        className={(!expandNav && `rotate-180`) + ` mx-2 transition duration-75 ease-in-out`}
+                    />
+                    {expandNav && (
+                        <span className="pl-[20px] text-[var(--grey-300)] font-bold text-[length:var(--font-size-md)]">
+                            Minimize Menu
+                        </span>
+                    )}
                 </div>
             </div>
         </nav>

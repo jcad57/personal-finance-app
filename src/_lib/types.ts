@@ -21,4 +21,5 @@ export interface NavigationTabProps {
     label: string;
     text: string;
     isActive: boolean;
+    expandNav: boolean;
 }
