@@ -18,6 +18,7 @@ export interface OverviewDataType {
 
 export interface NavigationTabProps {
     icon: string;
-    tab: string;
+    label: string;
     text: string;
+    isActive: boolean;
 }

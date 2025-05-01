@@ -1,7 +1,7 @@
 import { getOverviewData } from "@/_lib/data-services";
 import { OverviewDataType } from "@/_lib/types";
 
-import Navigation from "@/components/Navbar/Navigation";
+// import Navigation from "@/components/Navbar/Navigation";
 import Overview from "@/components/Dashboard/Overview";
 
 async function fetchData() {
@@ -12,9 +12,8 @@ async function fetchData() {
 export default async function Home() {
     const overviewData: OverviewDataType = await fetchData();
     return (
-        <div className="lg:h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)] ">
+        <>
             <Overview overviewData={overviewData} />
-            <Navigation />
-        </div>
+        </>
     );
 }

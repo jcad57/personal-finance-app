@@ -7,10 +7,10 @@ const publicSans = localFont({
     variable: "--font-public-sans",
 });
 
-const publicSansItalic = localFont({
-    src: "../../public/assets/fonts/PublicSans-Italic-VariableFont_wght.ttf",
-    variable: "--font-public-sans-italic",
-});
+// const publicSansItalic = localFont({
+//     src: "../../public/assets/fonts/PublicSans-Italic-VariableFont_wght.ttf",
+//     variable: "--font-public-sans-italic",
+// });
 
 export const metadata: Metadata = {
     title: "Personal Finance App | Frontend Mentor",

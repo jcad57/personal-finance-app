@@ -1,3 +1,3 @@
 export default function Page() {
-    return <h1>Pots</h1>;
+    return <div className="w-full">Pots</div>;
 }
