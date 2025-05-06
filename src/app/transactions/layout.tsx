@@ -1,12 +1,12 @@
 import Navigation from "@/components/Navbar/Navigation";
 
-export default function HomeLayout({
+export default function TransactionsPageLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <div className="lg:h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)]">
+        <div className="lg:h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)] ">
             {children} <Navigation />
         </div>
     );

@@ -9,6 +9,15 @@ export interface TransactionOverviewItemProps {
     amount: number;
 }
 
+export interface TransactionItemProps {
+    date: string;
+    avatar: string;
+    name: string;
+    amount: number;
+    category: string;
+    recurring?: boolean;
+}
+
 export interface OverviewDataType {
     currentBalance: number;
     currentIncome: number;
@@ -22,4 +31,12 @@ export interface NavigationTabProps {
     text: string;
     isActive: boolean;
     expandNav: boolean;
+}
+
+export interface InputFieldProps {
+    placeholderText?: string;
+    icon?: string;
+    colorTag?: string;
+    prefix?: string;
+    helperText?: string;
 }

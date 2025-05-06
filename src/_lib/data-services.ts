@@ -34,14 +34,17 @@ async function getCurrentExpenses() {
 }
 
 export async function getAllTransactions() {
-    const { data, error } = await supabase.from("transactions").select("*");
+    const { data: transactions, error } = await supabase
+        .from("transactions")
+        .select("*")
+        .order("date", { ascending: false });
 
     if (error) {
         console.error(error);
         throw new Error("Error fetching current balance");
     }
 
-    return data;
+    return transactions;
 }
 
 async function getAllPots() {

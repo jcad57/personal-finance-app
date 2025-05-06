@@ -16,11 +16,15 @@ export default function Navigation() {
     const pathname = usePathname();
     const [expandNav, setExpandNav] = useState(true);
 
+    const handleExpandNav = () => {
+        setExpandNav(!expandNav);
+    };
+
     return (
         <nav
             className={
-                (!expandNav && `lg:w-auto`) +
-                ` w-full bg-[var(--grey-900)] fixed bottom-0 rounded-t-lg pt-2 px-[var(--spacing-lg)] md:px-[40px] lg:static lg:max-w-[300px] lg:px-0 lg:flex lg:flex-col lg:rounded-t-none lg:rounded-r-[var(--spacing-sm)] lg:pb-[var(--spacing-xxl)] z-100`
+                (!expandNav && `lg:w-auto `) +
+                ` w-full bg-[var(--grey-900)] transition-all duration-300 fixed bottom-0 rounded-t-lg pt-2 px-[var(--spacing-lg)] md:px-[40px] lg:static lg:max-w-[300px] lg:px-0 lg:flex lg:flex-col lg:rounded-t-none lg:rounded-r-[var(--spacing-sm)] lg:pb-[var(--spacing-xxl)] z-100`
             }>
             <Link href="/home">
                 <Image
@@ -44,7 +48,7 @@ export default function Navigation() {
                 </ul>
                 <div
                     className="hidden pl-[var(--spacing-xl)] py-[var(--spacing-s)] mr-[var(--spacing-lg)] rounded-r-lg lg:flex hover:cursor-pointer hover:bg-[#393740] transition-colors duration-75 ease-in"
-                    onClick={() => setExpandNav(!expandNav)}>
+                    onClick={() => handleExpandNav()}>
                     <Image
                         src={minimizeMenuIcon}
                         alt=""

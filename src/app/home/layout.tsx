@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navbar/Navigation";
 
-export default function HomeLayout({
+export default function _OverviewPageLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
