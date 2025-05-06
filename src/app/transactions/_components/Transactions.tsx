@@ -15,8 +15,21 @@ export default function Transactions({ transactions }: { transactions: Transacti
         <FullPageWrapper>
             <PageHeader title="Transactions" />
             <EmptyCard>
-                <div className="flex">
+                <div className="flex gap-[var(--spacing-lg)] justify-between">
                     <InputField icon="search" placeholderText="Search transaction" />
+                    {/* Large Screen */}
+                    <div className="hidden md:flex gap-[var(--spacing-lg)]">
+                        <div className=" flex md:items-center gap-[var(--spacing-xxs)]">
+                            <span className="text-[length:var(--font-size-sm)] text-[var(--grey-500)]">Sort by</span>
+                            <InputField icon="caret" placeholderText="Latest" />
+                        </div>
+                        <div className="hidden md:flex md:items-center gap-[var(--spacing-xxs)]">
+                            <span className="text-[length:var(--font-size-sm)] text-[var(--grey-500)]">Category</span>
+                            <InputField icon="caret" placeholderText="All Transactions" />
+                        </div>
+                    </div>
+
+                    {/* Small Screen */}
                     <div className="flex gap-[var(--spacing-lg)] px-[var(--spacing-lg)] md:hidden">
                         <Image src={sortIconMobile} width={20} height={20} alt="Sort list" className="cursor-pointer" />
                         <Image

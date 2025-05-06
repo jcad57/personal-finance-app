@@ -6,7 +6,7 @@ import searchIcon from "../../../public/assets/images/icon-search.svg";
 
 export default function InputField({ placeholderText, icon, prefix, colorTag, helperText }: InputFieldProps) {
     return (
-        <div className="flex flex-col gap-[4px] w-full">
+        <div className="flex flex-col gap-[4px]">
             <div className="flex flex-col relative">
                 <input
                     type="text"
