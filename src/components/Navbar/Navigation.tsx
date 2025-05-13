@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { links } from "@/_lib/links";
 
 import navLogoFull from "../../../public/assets/images/logo-large.svg";
@@ -9,7 +10,6 @@ import minimizeMenuIcon from "../../../public/assets/images/icon-minimize-menu.s
 import NavIcon from "./NavIcon";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 // TODO: properly set up SVG files
 export default function Navigation() {
@@ -30,6 +30,8 @@ export default function Navigation() {
                 <Image
                     className={`hidden lg:block my-[40px] mx-[var(--spacing-xl)] `}
                     src={expandNav ? navLogoFull : navLogoMini}
+                    width={expandNav ? 121 : 14}
+                    height={22}
                     alt=""
                 />
             </Link>

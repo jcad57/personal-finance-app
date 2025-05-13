@@ -1,7 +1,7 @@
 import { getOverviewData } from "@/_lib/data-services";
 import { OverviewDataType } from "@/_lib/types";
 
-import Overview from "@/components/Dashboard/Overview";
+import Overview from "@/app/home/_components/Overview";
 
 async function fetchData() {
     const { currentBalance, currentIncome, currentExpenses, potsTotalSaved } = await getOverviewData();

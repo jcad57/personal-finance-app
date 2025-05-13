@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import iconCaretRight from "../../../public/assets/images/icon-caret-right.svg";
+import iconCaretRight from "../../../../public/assets/images/icon-caret-right.svg";
 import { useRouter } from "next/navigation";
 
 export default function OverviewCard({
@@ -17,7 +17,7 @@ export default function OverviewCard({
 }) {
     const router = useRouter();
     return (
-        <div className="grid bg-[var(--card-bg)] p-[var(--card-padding)] lg:p-[var(--card-padding-lg)] rounded-[var(--card-border-radius)] gap-[var(--spacing-md)]">
+        <div className="grid bg-[var(--card-bg)] p-[var(--card-padding)] md:p-[var(--card-padding-lg)] rounded-[var(--card-border-radius)] gap-[var(--spacing-md)]">
             <div className="flex justify-between">
                 <h2 className="text-[length:var(--font-size-lg)] font-bold">{title}</h2>
 

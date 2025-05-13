@@ -1,4 +1,4 @@
-import OverviewCard from "../../Layout/OverviewCardDetailed";
+import OverviewCard from "../OverviewCardDetailed";
 import TransactionOverviewItem from "./TransactionOverviewItem";
 
 import { getAllTransactions } from "@/_lib/data-services";

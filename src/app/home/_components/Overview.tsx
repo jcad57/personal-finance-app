@@ -1,13 +1,12 @@
 import { OverviewDataType } from "@/_lib/types";
 
-import PotsOverviewCard from "@/components/Dashboard/Pots/PotsOverviewCard";
-import OverviewCardBasic from "@/components/Layout/OverviewCardBasic";
-import TransactionsOverview from "@/components/Dashboard/Transactions/TransactionsOverview";
-import BudgetOverviewCard from "@/components/Dashboard/Budget/BudgetsOverviewCard";
-import RecurringBills from "@/components/Dashboard/RecurringBills/RecurringBillsOverview";
+import PotsOverviewCard from "@/app/home/_components/PotsOverviewCard";
+import OverviewCardBasic from "@/app/home/_components/OverviewCardBasic";
+import TransactionsOverview from "@/app/home/_components/Transactions/TransactionsOverview";
+import BudgetOverviewCard from "@/app/home/_components/BudgetsOverviewCard";
+import RecurringBills from "@/app/home/_components/RecurringBills/RecurringBillsOverview";
 
 export default function Overview({ overviewData }: { overviewData: OverviewDataType }) {
-    console.log("Overview data:", overviewData);
     return (
         <main className="px-[var(--spacing-sm)] py-[var(--spacing-lg)] pb-[52px] lg:pb-[var(--spacing-lg)] lg:w-full md:p-[40px] overflow-y-auto">
             <h1 className="text-[length:var(--font-size-xl)] font-bold">Overview</h1>

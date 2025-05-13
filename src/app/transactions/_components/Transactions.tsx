@@ -11,6 +11,7 @@ import filterIconMobile from "../../../../public/assets/images/icon-filter-mobil
 
 //TODO: Add a pagination component to the transactions list
 export default function Transactions({ transactions }: { transactions: TransactionItemProps[] }) {
+    console.log(transactions);
     return (
         <FullPageWrapper>
             <PageHeader title="Transactions" />
@@ -42,7 +43,7 @@ export default function Transactions({ transactions }: { transactions: Transacti
                     </div>
                 </div>
                 <div className="flex flex-col">
-                    {transactions.map((transaction) => {
+                    {transactions?.map((transaction) => {
                         return (
                             <TransactionItem
                                 key={transaction.date}
