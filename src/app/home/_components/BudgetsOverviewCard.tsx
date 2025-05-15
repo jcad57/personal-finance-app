@@ -1,13 +1,13 @@
 import { getBudgets } from "@/_lib/data-services";
 
 import TinyPot from "@/components/Layout/TinyPot";
-import OverviewCardDetailed from "../../../app/home/_components/OverviewCardDetailed";
 import BudgetWheel from "@/components/Layout/BudgetWheel";
+import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 
 export default async function BudgetOverviewCard() {
     const budgets = await getBudgets();
     return (
-        <OverviewCardDetailed title="Budgets" seeDetails>
+        <PrimaryCard header="Budgets" more moreText="See Details" linkTo="budgets" altText="See Budget Details">
             <div className="flex flex-col md:items-center md:flex-row gap-[var(--spacing-md)] md:p-[var(--spacing-xl)]">
                 <div className="grid w-full">
                     <BudgetWheel />
@@ -23,6 +23,6 @@ export default async function BudgetOverviewCard() {
                     ))}
                 </div>
             </div>
-        </OverviewCardDetailed>
+        </PrimaryCard>
     );
 }

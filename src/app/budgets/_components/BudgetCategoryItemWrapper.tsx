@@ -1,15 +1,13 @@
 import { BudgetOverviewItemProps } from "@/_lib/types";
 import { formatCurrency } from "@/_lib/helpers";
 
-import BudgetCategoryHeader from "./BudgetCategoryHeader";
 import SpendingProgressBar from "./SpendingProgressBar";
 import TinyPot from "@/components/Layout/TinyPot";
 import LatestSpending from "./LatestSpending";
 
-export default function BudgetCategoryItemWrapper({ category, maximum, theme, spent }: BudgetOverviewItemProps) {
+export default function BudgetCategoryItemWrapper({ maximum, theme, spent }: BudgetOverviewItemProps) {
     return (
         <div className="flex flex-col gap-[var(--spacing-md)]">
-            <BudgetCategoryHeader category={category} theme={theme} />
             <div className="flex flex-col gap-[var(--spacing-sm)]">
                 <span className="text-[var(--grey-500)] text-[length:var(--font-size-sm)]">
                     Maximum of {formatCurrency(maximum)}
