@@ -9,8 +9,10 @@ export default function Home() {
     useEffect(() => {
         if (!isLoggedIn) {
             router.push("/login");
+        } else {
+            router.push("/home");
         }
     }, [isLoggedIn, router]);
 
-    return <div>Personal Finance App</div>;
+    return <h1>Loading...</h1>;
 }

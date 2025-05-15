@@ -1,8 +1,8 @@
 {
     "balance": {
-        "current": 4836.00,
+        "current": 4836.0,
         "income": 3814.25,
-        "expenses": 1700.50
+        "expenses": 1700.5
     },
     "transactions": [
         {
@@ -10,7 +10,7 @@
             "name": "Emma Richardson",
             "category": "General",
             "date": "2024-08-19T14:23:11Z",
-            "amount": 75.50,
+            "amount": 75.5,
             "recurring": false
         },
         {
@@ -18,7 +18,7 @@
             "name": "Savory Bites Bistro",
             "category": "Dining Out",
             "date": "2024-08-19T20:23:11Z",
-            "amount": -55.50,
+            "amount": -55.5,
             "recurring": false
         },
         {
@@ -26,7 +26,7 @@
             "name": "Daniel Carter",
             "category": "General",
             "date": "2024-08-18T09:45:32Z",
-            "amount": -42.30,
+            "amount": -42.3,
             "recurring": false
         },
         {
@@ -34,7 +34,7 @@
             "name": "Sun Park",
             "category": "General",
             "date": "2024-08-17T16:12:05Z",
-            "amount": 120.00,
+            "amount": 120.0,
             "recurring": false
         },
         {
@@ -42,7 +42,7 @@
             "name": "Urban Services Hub",
             "category": "General",
             "date": "2024-08-17T21:08:09Z",
-            "amount": -65.00,
+            "amount": -65.0,
             "recurring": false
         },
         {
@@ -58,7 +58,7 @@
             "name": "Lily Ramirez",
             "category": "General",
             "date": "2024-08-14T13:05:27Z",
-            "amount": 50.00,
+            "amount": 50.0,
             "recurring": false
         },
         {
@@ -66,7 +66,7 @@
             "name": "Ethan Clark",
             "category": "Dining Out",
             "date": "2024-08-13T20:15:59Z",
-            "amount": -32.50,
+            "amount": -32.5,
             "recurring": false
         },
         {
@@ -74,7 +74,7 @@
             "name": "James Thompson",
             "category": "Entertainment",
             "date": "2024-08-11T15:45:38Z",
-            "amount": -5.00,
+            "amount": -5.0,
             "recurring": false
         },
         {
@@ -82,7 +82,7 @@
             "name": "Pixel Playground",
             "category": "Entertainment",
             "date": "2024-08-11T18:45:38Z",
-            "amount": -10.00,
+            "amount": -10.0,
             "recurring": true
         },
         {
@@ -90,7 +90,7 @@
             "name": "Ella Phillips",
             "category": "Dining Out",
             "date": "2024-08-10T19:22:51Z",
-            "amount": -45.00,
+            "amount": -45.0,
             "recurring": false
         },
         {
@@ -98,7 +98,7 @@
             "name": "Sofia Peterson",
             "category": "Transportation",
             "date": "2024-08-08T08:55:17Z",
-            "amount": -15.00,
+            "amount": -15.0,
             "recurring": false
         },
         {
@@ -114,7 +114,7 @@
             "name": "Green Plate Eatery",
             "category": "Groceries",
             "date": "2024-08-06T08:25:44Z",
-            "amount": -78.50,
+            "amount": -78.5,
             "recurring": false
         },
         {
@@ -122,7 +122,7 @@
             "name": "Sebastian Cook",
             "category": "Transportation",
             "date": "2024-08-06T10:05:44Z",
-            "amount": -22.50,
+            "amount": -22.5,
             "recurring": false
         },
         {
@@ -130,7 +130,7 @@
             "name": "William Harris",
             "category": "Personal Care",
             "date": "2024-08-05T14:30:56Z",
-            "amount": -10.00,
+            "amount": -10.0,
             "recurring": false
         },
         {
@@ -138,7 +138,7 @@
             "name": "Elevate Education",
             "category": "Education",
             "date": "2024-08-04T11:15:22Z",
-            "amount": -50.00,
+            "amount": -50.0,
             "recurring": true
         },
         {
@@ -146,7 +146,7 @@
             "name": "Serenity Spa & Wellness",
             "category": "Personal Care",
             "date": "2024-08-03T14:00:37Z",
-            "amount": -30.00,
+            "amount": -30.0,
             "recurring": true
         },
         {
@@ -154,7 +154,7 @@
             "name": "Spark Electric Solutions",
             "category": "Bills",
             "date": "2024-08-02T09:25:11Z",
-            "amount": -100.00,
+            "amount": -100.0,
             "recurring": true
         },
         {
@@ -162,7 +162,7 @@
             "name": "Rina Sato",
             "category": "Bills",
             "date": "2024-08-02T13:31:11Z",
-            "amount": -50.00,
+            "amount": -50.0,
             "recurring": false
         },
         {
@@ -178,7 +178,7 @@
             "name": "Aqua Flow Utilities",
             "category": "Bills",
             "date": "2024-07-30T13:20:14Z",
-            "amount": -100.00,
+            "amount": -100.0,
             "recurring": true
         },
         {
@@ -186,7 +186,7 @@
             "name": "EcoFuel Energy",
             "category": "Bills",
             "date": "2024-07-29T11:55:29Z",
-            "amount": -35.00,
+            "amount": -35.0,
             "recurring": true
         },
         {
@@ -194,7 +194,7 @@
             "name": "Yuna Kim",
             "category": "Dining Out",
             "date": "2024-07-29T13:51:29Z",
-            "amount": -28.50,
+            "amount": -28.5,
             "recurring": false
         },
         {
@@ -218,7 +218,7 @@
             "name": "Buzz Marketing Group",
             "category": "General",
             "date": "2024-07-26T14:40:23Z",
-            "amount": 3358.00,
+            "amount": 3358.0,
             "recurring": false
         },
         {
@@ -250,7 +250,7 @@
             "name": "Emma Richardson",
             "category": "General",
             "date": "2024-07-20T17:30:55Z",
-            "amount": -25.00,
+            "amount": -25.0,
             "recurring": false
         },
         {
@@ -258,7 +258,7 @@
             "name": "Daniel Carter",
             "category": "General",
             "date": "2024-07-19T12:45:09Z",
-            "amount": 50.00,
+            "amount": 50.0,
             "recurring": false
         },
         {
@@ -266,7 +266,7 @@
             "name": "Sun Park",
             "category": "General",
             "date": "2024-07-18T19:20:23Z",
-            "amount": -38.50,
+            "amount": -38.5,
             "recurring": false
         },
         {
@@ -290,7 +290,7 @@
             "name": "Lily Ramirez",
             "category": "General",
             "date": "2024-07-15T16:35:04Z",
-            "amount": 75.00,
+            "amount": 75.0,
             "recurring": false
         },
         {
@@ -306,7 +306,7 @@
             "name": "Rina Sato",
             "category": "Entertainment",
             "date": "2024-07-13T09:15:32Z",
-            "amount": -10.00,
+            "amount": -10.0,
             "recurring": false
         },
         {
@@ -314,7 +314,7 @@
             "name": "James Thompson",
             "category": "Bills",
             "date": "2024-07-12T13:40:46Z",
-            "amount": -95.50,
+            "amount": -95.5,
             "recurring": false
         },
         {
@@ -330,7 +330,7 @@
             "name": "Yuna Kim",
             "category": "Dining Out",
             "date": "2024-07-10T12:30:13Z",
-            "amount": -27.50,
+            "amount": -27.5,
             "recurring": false
         },
         {
@@ -338,7 +338,7 @@
             "name": "Sofia Peterson",
             "category": "Transportation",
             "date": "2024-07-09T08:55:27Z",
-            "amount": -12.50,
+            "amount": -12.5,
             "recurring": false
         },
         {
@@ -346,7 +346,7 @@
             "name": "Mason Martinez",
             "category": "Lifestyle",
             "date": "2024-07-08T15:20:41Z",
-            "amount": -65.00,
+            "amount": -65.0,
             "recurring": false
         },
         {
@@ -354,7 +354,7 @@
             "name": "Sebastian Cook",
             "category": "Transportation",
             "date": "2024-07-07T11:45:55Z",
-            "amount": -20.00,
+            "amount": -20.0,
             "recurring": false
         },
         {
@@ -362,7 +362,7 @@
             "name": "William Harris",
             "category": "General",
             "date": "2024-07-06T17:10:09Z",
-            "amount": 20.00,
+            "amount": 20.0,
             "recurring": false
         },
         {
@@ -370,7 +370,7 @@
             "name": "Elevate Education",
             "category": "Education",
             "date": "2024-07-05T11:15:22Z",
-            "amount": -50.00,
+            "amount": -50.0,
             "recurring": true
         },
         {
@@ -378,7 +378,7 @@
             "name": "Serenity Spa & Wellness",
             "category": "Personal Care",
             "date": "2024-07-03T14:00:37Z",
-            "amount": -30.00,
+            "amount": -30.0,
             "recurring": true
         },
         {
@@ -386,7 +386,7 @@
             "name": "Spark Electric Solutions",
             "category": "Bills",
             "date": "2024-07-02T09:25:51Z",
-            "amount": -100.00,
+            "amount": -100.0,
             "recurring": true
         },
         {
@@ -394,61 +394,61 @@
             "name": "Swift Ride Share",
             "category": "Transportation",
             "date": "2024-07-02T19:50:05Z",
-            "amount": -16.50,
+            "amount": -16.5,
             "recurring": false
         }
     ],
     "budgets": [
         {
             "category": "Entertainment",
-            "maximum": 50.00,
+            "maximum": 50.0,
             "theme": "#277C78"
         },
         {
             "category": "Bills",
-            "maximum": 750.00,
+            "maximum": 750.0,
             "theme": "#82C9D7"
         },
         {
             "category": "Dining Out",
-            "maximum": 75.00,
+            "maximum": 75.0,
             "theme": "#F2CDAC"
         },
         {
             "category": "Personal Care",
-            "maximum": 100.00,
+            "maximum": 100.0,
             "theme": "#626070"
         }
     ],
     "pots": [
         {
             "name": "Savings",
-            "target": 2000.00,
-            "total": 159.00,
+            "target": 2000.0,
+            "total": 159.0,
             "theme": "#277C78"
         },
         {
             "name": "Concert Ticket",
-            "target": 150.00,
-            "total": 110.00,
+            "target": 150.0,
+            "total": 110.0,
             "theme": "#626070"
         },
         {
             "name": "Gift",
-            "target": 150.00,
-            "total": 110.00,
+            "target": 150.0,
+            "total": 110.0,
             "theme": "#82C9D7"
         },
         {
             "name": "New Laptop",
-            "target": 1000.00,
-            "total": 10.00,
+            "target": 1000.0,
+            "total": 10.0,
             "theme": "#F2CDAC"
         },
         {
             "name": "Holiday",
-            "target": 1440.00,
-            "total": 531.00,
+            "target": 1440.0,
+            "total": 531.0,
             "theme": "#826CB0"
         }
     ]
