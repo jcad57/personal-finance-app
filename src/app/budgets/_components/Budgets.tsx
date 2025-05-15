@@ -6,12 +6,13 @@ import FullPageWrapper from "@/components/Layout/FullPageWrapper";
 import PageHeader from "@/components/Layout/PageHeader";
 import SpendingSummaryItem from "./SpendingSummaryItem";
 import BudgetCategoryItemWrapper from "./BudgetCategoryItemWrapper";
+import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 
 export default function Budgets({ budgetData }: { budgetData: BudgetOverviewItemProps[] }) {
     // console.log(budgetData);
     return (
         <FullPageWrapper>
-            <PageHeader title="Budgets" />
+            <PageHeader title="Budgets" showButton buttonText="+ Add New Budget" headerButton />
             <div className="lg:flex gap-[var(--spacing-xl)]">
                 <section id="budget-wheel" className="flex flex-col pb-[var(--spacing-lg)] w-full lg:max-w-[650px]">
                     <EmptyCard>
@@ -42,7 +43,12 @@ export default function Budgets({ budgetData }: { budgetData: BudgetOverviewItem
                 <section id="budgets" className="flex flex-col gap-[var(--spacing-lg)] w-full">
                     {budgetData?.map((item) => {
                         return (
-                            <EmptyCard key={item.category}>
+                            <PrimaryCard
+                                key={item.category}
+                                header={item.category}
+                                accentDot
+                                accentDotTheme={item.theme}
+                                ellipsis>
                                 <BudgetCategoryItemWrapper
                                     category={item.category}
                                     maximum={item.maximum}
@@ -50,7 +56,7 @@ export default function Budgets({ budgetData }: { budgetData: BudgetOverviewItem
                                     key={item.theme}
                                     spent={36}
                                 />
-                            </EmptyCard>
+                            </PrimaryCard>
                         );
                     })}
                 </section>

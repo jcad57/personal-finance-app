@@ -47,7 +47,7 @@ export async function getAllTransactions() {
     return transactions;
 }
 
-async function getAllPots() {
+export async function getAllPots() {
     const { data, error } = await supabase.from("pots").select("*");
 
     if (error) {
