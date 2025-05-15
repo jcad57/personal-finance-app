@@ -1,4 +1,18 @@
-export default function Login({ setFormType, register }) {
+import { UseFormRegister } from "react-hook-form";
+
+interface FormValues {
+    name: string;
+    email: string;
+    password: string;
+}
+
+export default function Login({
+    setFormType,
+    register,
+}: {
+    setFormType: (formType: string) => void;
+    register: UseFormRegister<FormValues>;
+}) {
     return (
         <>
             <form className="flex flex-col">

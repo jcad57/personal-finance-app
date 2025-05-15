@@ -7,6 +7,7 @@ export default function Home() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
+        setIsLoggedIn(false);
         if (!isLoggedIn) {
             router.push("/login");
         } else {

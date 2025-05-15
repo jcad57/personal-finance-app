@@ -12,10 +12,11 @@ import SignupForm from "@/components/Auth/SignupForm";
 const authImg = "/assets/images/illustration-authentication.svg";
 export default function Login() {
     const [formType, setFormType] = useState("login");
-    const { register, handleSubmit } = useForm({
+    const { register } = useForm({
         defaultValues: {
             email: "",
             password: "",
+            name: "",
         },
     });
 
