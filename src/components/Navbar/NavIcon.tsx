@@ -3,9 +3,7 @@ import { NavigationTabProps } from "@/_lib/types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NavIcon({ icon, label, text, isActive, expandNav }: NavigationTabProps) {
-    const imageMarginLeft = isActive ? `lg:ml-[28px] ` : `lg:ml-[var(--spacing-xl)] `;
-    console.log(label, imageMarginLeft);
+export default function NavIcon({ icon, label, text, isActive }: NavigationTabProps) {
     return (
         <Link href={`/${label}`} className="w-full  ">
             <li
@@ -26,15 +24,13 @@ export default function NavIcon({ icon, label, text, isActive, expandNav }: Navi
                     height={24}
                 />
 
-                {expandNav && (
-                    <span
-                        className={
-                            `hidden md:inline lg:text-[length:var(--font-size-md)] font-bold text-[length:var(--font-size-xs)]` +
-                            (isActive ? ` text-[var(--grey-900)]` : ` text-[var(--grey-300)]`)
-                        }>
-                        {text}
-                    </span>
-                )}
+                <span
+                    className={
+                        `hidden whitespace-nowrap overflow-hidden md:inline lg:text-[length:var(--font-size-md)] font-bold text-[length:var(--font-size-xs)]` +
+                        (isActive ? ` text-[var(--grey-900)]` : ` text-[var(--grey-300)]`)
+                    }>
+                    {text}
+                </span>
             </li>
         </Link>
     );

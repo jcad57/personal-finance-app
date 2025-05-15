@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import Navigation from "@/components/Navbar/Navigation";
 
 const publicSans = localFont({
     src: "../../public/assets/fonts/PublicSans-VariableFont_wght.ttf",
@@ -19,7 +20,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`h-screen font-[family-name:var(${publicSans.variable})] antialiased`}>{children}</body>
+            <body className={`h-screen font-[family-name:var(${publicSans.variable})] antialiased`}>
+                <div className="lg:h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)]">
+                    {children} <Navigation />
+                </div>
+            </body>
         </html>
     );
 }
