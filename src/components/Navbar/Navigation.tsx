@@ -59,7 +59,7 @@ export default function Navigation() {
                     ))}
                 </ul>
                 <div
-                    className="hidden pl-[var(--spacing-xl)] py-[var(--spacing-s)] mr-[var(--spacing-lg)] rounded-r-lg lg:flex hover:cursor-pointer hover:bg-[#393740] transition-colors duration-75 ease-in"
+                    className="hidden pl-[var(--spacing-xl)] py-[var(--spacing-s)] rounded-r-lg lg:flex hover:cursor-pointer hover:bg-[#393740] transition-colors duration-75 ease-in"
                     onClick={() => handleExpandNav()}>
                     <Image
                         src={minimizeMenuIcon}
@@ -70,7 +70,7 @@ export default function Navigation() {
                     />
 
                     <span
-                        className={`whitespace-nowrap overflow-hidden pl-[20px] text-[var(--grey-300)] font-bold text-[length:var(--font-size-md)] ${
+                        className={`whitespace-nowrap overflow-hidden ml-[var(--spacing-sm)] text-[var(--grey-300)] font-bold text-[length:var(--font-size-md)] ${
                             expandNav ? `block` : `hidden`
                         }`}>
                         Minimize Menu

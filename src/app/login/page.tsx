@@ -22,7 +22,7 @@ export default function Login() {
 
     return (
         // TODO: Add password visible icon
-        <div className="bg-[var(--beige-300)] flex flex-col h-screen lg:flex lg:flex-row lg:p-[var(--spacing-lg)]">
+        <div className="bg-[var(--beige-300)] flex flex-col h-screen lg:flex lg:flex-row lg:p-[var(--spacing-lg)] w-full">
             <header className="flex justify-center items-center bg-[var(--grey-900)] py-[var(--spacing-lg)] rounded-b-lg lg:hidden">
                 <Image src={logo} width={150} height={80} alt="logo" />
             </header>

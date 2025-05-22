@@ -1,19 +1,30 @@
+"use client";
 import { InputFieldProps } from "@/_lib/types";
 import Image from "next/image";
 
 import caretDown from "../../../public/assets/images/icon-caret-down.svg";
 import searchIcon from "../../../public/assets/images/icon-search.svg";
 
-export default function InputField({ placeholderText, icon, prefix, colorTag, helperText }: InputFieldProps) {
+export default function InputField({
+    placeholderText,
+    icon,
+    prefix,
+    colorTag,
+    helperText,
+    maxWidth,
+    isDisabled,
+}: InputFieldProps) {
     return (
         <div className="flex flex-col gap-[4px]">
             <div className="flex flex-col relative">
                 <input
+                    disabled={isDisabled}
                     type="text"
+                    style={{ maxWidth: maxWidth ? `${maxWidth}` : "100%" }}
                     className={
                         (icon ? `pe-[var(--spacing-xxl)] ` : `pe-[var(--spacing-md)] `) +
                         (colorTag || prefix ? `ps-[48px] ` : `ps-[var(--spacing-md)] `) +
-                        ` w-full py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] placeholder:text-[var(--beige-500)] placeholder:text-[length:var(--font-size-sm)] focus:border-[var(--grey-900)] focus:outline-none`
+                        ` py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] placeholder:text-[var(--beige-500)] placeholder:text-[length:var(--font-size-sm)] focus:border-[var(--grey-900)] focus:outline-none`
                     }
                     placeholder={placeholderText}
                 />
@@ -30,6 +41,7 @@ export default function InputField({ placeholderText, icon, prefix, colorTag, he
                 )}
                 {icon && (
                     <Image
+                        onClick={() => console.log("clicked")}
                         src={icon === "search" ? searchIcon : caretDown}
                         width={16}
                         height={16}

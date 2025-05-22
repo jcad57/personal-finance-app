@@ -17,7 +17,7 @@ export default function PotsCard({
     theme: string;
 }) {
     return (
-        <PrimaryCard header={name} linkTo="pots" accentDot accentDotTheme={theme} ellipsis altText="Pots">
+        <PrimaryCard title={name} linkTo="pots" accentDot accentDotTheme={theme} ellipsis altText="Pots">
             <div>
                 <div className="flex justify-between items-center pb-[var(--spacing-sm)]">
                     <span className="text-[var(--grey-500)] text-[length:var(--font-size-sm)]">Total Saved</span>

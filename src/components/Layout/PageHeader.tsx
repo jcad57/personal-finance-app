@@ -15,7 +15,7 @@ export default function PageHeader({
     onClick?: () => void;
 }) {
     return (
-        <div className="grid grid-cols-2 ">
+        <div className="grid" style={{ gridTemplateColumns: showButton ? "1fr 1fr" : "1fr" }}>
             <h1 className="text-[length:var(--font-size-xl)] font-bold mb-[var(--spacing-xl)]">{title}</h1>
             {showButton && (
                 <Button

@@ -43,6 +43,8 @@ export interface InputFieldProps {
     colorTag?: string;
     prefix?: string;
     helperText?: string;
+    maxWidth?: string;
+    isDisabled?: boolean;
 }
 
 export interface PotsProps {
@@ -56,7 +58,7 @@ export interface PotsProps {
 
 export interface PrimaryCardProps extends CardHeaderProps {
     children?: React.ReactNode;
-    header?: string;
+    title?: string;
 }
 
 export interface CardHeaderProps {
@@ -76,4 +78,13 @@ export interface SecondaryCardProps {
     title: string;
     value: number;
     accent?: boolean;
+    grow?: boolean;
+}
+
+export interface RecurringBillsProps {
+    id?: string;
+    name: string;
+    date: number;
+    amount: number;
+    avatar: string;
 }

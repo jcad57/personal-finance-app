@@ -21,7 +21,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`h-screen font-[family-name:var(${publicSans.variable})] antialiased`}>
-                <div className="lg:h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)]">
+                <div className="h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)]">
                     {children} <Navigation />
                 </div>
             </body>

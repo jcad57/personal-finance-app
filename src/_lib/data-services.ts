@@ -69,6 +69,17 @@ export async function getBudgets() {
     return data;
 }
 
+export async function getRecurringBills() {
+    const { data, error } = await supabase.from("recurring-bills").select("*").order("date", { ascending: true });
+
+    if (error) {
+        console.error(error);
+        throw new Error("Error fetching budgets");
+    }
+
+    return data;
+}
+
 export async function getOverviewData() {
     const [{ current: currentBalance }, { income: currentIncome }, { expenses: currentExpenses }, { data: potsData }] =
         await Promise.all([getCurrentBalance(), getCurrentIncome(), getCurrentExpenses(), getAllPots()]);

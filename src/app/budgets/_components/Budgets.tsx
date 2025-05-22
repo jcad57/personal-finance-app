@@ -45,7 +45,7 @@ export default function Budgets({ budgetData }: { budgetData: BudgetOverviewItem
                         return (
                             <PrimaryCard
                                 key={item.category}
-                                header={item.category}
+                                title={item.category}
                                 accentDot
                                 accentDotTheme={item.theme}
                                 ellipsis>

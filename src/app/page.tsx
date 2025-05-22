@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
     const router = useRouter();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     useEffect(() => {
-        setIsLoggedIn(false);
+        setIsLoggedIn(true);
         if (!isLoggedIn) {
             router.push("/login");
         } else {
@@ -15,5 +15,9 @@ export default function Home() {
         }
     }, [isLoggedIn, router]);
 
-    return <h1>Loading...</h1>;
+    return (
+        <div className="grid items-center justify-center h-full w-full">
+            <h1>Loading...</h1>
+        </div>
+    );
 }

@@ -16,7 +16,7 @@ export default function NavIcon({ icon, label, text, isActive }: NavigationTabPr
                 <Image
                     className={
                         (isActive ? `lg:ml-[28px]` : `lg:ml-[var(--spacing-xl)]`) +
-                        ` lg:mr-[var(--spacing-xl)] mr-auto ml-auto min-w-[24px] min-h-[24px]`
+                        ` lg:mr-[var(--spacing-sm)] mr-auto ml-auto min-w-[24px] min-h-[24px]`
                     }
                     src={icon}
                     alt={label}

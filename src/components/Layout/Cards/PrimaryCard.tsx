@@ -5,7 +5,7 @@ import EmptyCard from "../EmptyCard";
 
 export default function PrimaryCard({
     children,
-    header,
+    title,
     linkTo,
     more,
     moreText,
@@ -16,15 +16,18 @@ export default function PrimaryCard({
 }: PrimaryCardProps) {
     return (
         <EmptyCard>
-            <CardHeader
-                title={header}
-                linkTo={linkTo}
-                more={more}
-                moreText={moreText}
-                accentDot={accentDot}
-                accentDotTheme={accentDotTheme}
-                ellipsis={ellipsis}
-                altText={altText}></CardHeader>
+            {title && (
+                <CardHeader
+                    title={title}
+                    linkTo={linkTo}
+                    more={more}
+                    moreText={moreText}
+                    accentDot={accentDot}
+                    accentDotTheme={accentDotTheme}
+                    ellipsis={ellipsis}
+                    altText={altText}
+                />
+            )}
             {children}
         </EmptyCard>
     );
