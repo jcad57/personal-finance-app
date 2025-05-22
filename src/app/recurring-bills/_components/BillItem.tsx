@@ -20,9 +20,9 @@ export default function BillItem({ date, name, avatar, amount }: RecurringBillsP
 
     // console.log(date, name, avatar, amount);
     return (
-        <div className="flex flex-col not-first:border-t-[1px] last:pt-[var(--spacing-xs)] [&:not(:first-child):not(:last-child)]:py-[var(--spacing-xs)] first:pb-[var(--spacing-xs)] not-first:border-[var(--grey-500)]/15">
+        <div className="flex flex-col not-first:border-t-[1px] last:pt-[var(--spacing-md)] [&:not(:first-child):not(:last-child)]:py-[var(--spacing-md)] first:pb-[var(--spacing-md)] not-first:border-[var(--grey-500)]/15">
             <div className="flex flex-col md:flex-row">
-                <div className="flex items-center gap-[var(--spacing-sm)] md:flex-1">
+                <div className="flex items-center gap-[var(--spacing-sm)] md:flex-1 mb-[var(--spacing-xxs)]">
                     <Image src={avatar} width={32} height={32} alt={name} className="rounded-full" />
                     <span className="text-[length:var(--font-size-sm)] font-bold">{name}</span>
                 </div>

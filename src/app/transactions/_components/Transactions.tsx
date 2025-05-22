@@ -17,16 +17,21 @@ export default function Transactions({ transactions }: { transactions: Transacti
             <PageHeader title="Transactions" />
             <EmptyCard>
                 <div className="flex gap-[var(--spacing-lg)] justify-between">
-                    <InputField icon="search" placeholderText="Search transaction" />
+                    <InputField icon="search" placeholderText="Search transaction" maxWidth="161px" />
                     {/* Large Screen */}
                     <div className="hidden md:flex gap-[var(--spacing-lg)]">
                         <div className=" flex md:items-center gap-[var(--spacing-xxs)]">
                             <span className="text-[length:var(--font-size-sm)] text-[var(--grey-500)]">Sort by</span>
-                            <InputField icon="caret" placeholderText="Latest" />
+                            <InputField icon="caret" placeholderText="Latest" maxWidth="114px" isDisabled={true} />
                         </div>
                         <div className="hidden md:flex md:items-center gap-[var(--spacing-xxs)]">
                             <span className="text-[length:var(--font-size-sm)] text-[var(--grey-500)]">Category</span>
-                            <InputField icon="caret" placeholderText="All Transactions" />
+                            <InputField
+                                icon="caret"
+                                placeholderText="All Transactions"
+                                maxWidth="177px"
+                                isDisabled={true}
+                            />
                         </div>
                     </div>
 

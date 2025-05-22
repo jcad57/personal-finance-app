@@ -14,12 +14,17 @@ const BillItemsTable = ({ recurringBills }: { recurringBills: RecurringBillsProp
                 </tr>
             </thead>
             <tbody>
-                {recurringBills.map((bill) => {
+                {recurringBills.map((bill, index) => {
+                    const isLast = index === recurringBills.length - 1;
+
                     return (
-                        <tr
-                            key={bill.id}
-                            className="not-first:border-t-[1px] last:pt-[var(--spacing-xs)] [&:not(:first-child):not(:last-child)]:py-[var(--spacing-xs)] first:pb-[var(--spacing-xs)] not-first:border-[var(--grey-500)]/15">
-                            <td className="flex items-center gap-[var(--spacing-sm)] py-[var(--spacing-md)]">
+                        <tr key={bill.id} className="not-first:border-t-[1px] not-first:border-[var(--grey-500)]/15 ">
+                            <td
+                                style={{
+                                    paddingBlock: isLast ? "" : "var(--spacing-md)",
+                                    paddingTop: isLast ? "var(--spacing-md)" : "",
+                                }}
+                                className="flex items-center gap-[var(--spacing-sm)]">
                                 <Image
                                     src={bill.avatar}
                                     width={32}
