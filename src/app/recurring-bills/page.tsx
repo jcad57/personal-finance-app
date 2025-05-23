@@ -1,12 +1,12 @@
-import { getRecurringBills } from "@/_lib/data-services";
+import { Suspense } from "react";
+
 import RecurringBills from "./_components/RecurringBills";
+import Loading from "@/components/Layout/Loading";
 
-export default async function Page() {
-    const recurringBills = await getRecurringBills();
-
+export default function Page() {
     return (
-        <>
-            <RecurringBills recurringBills={recurringBills} />
-        </>
+        <Suspense fallback={<Loading />}>
+            <RecurringBills />
+        </Suspense>
     );
 }

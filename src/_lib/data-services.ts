@@ -55,7 +55,12 @@ export async function getAllPots() {
         throw new Error("Error fetching current balance");
     }
 
-    return { data };
+    let totalPots = 0;
+    data.forEach((pot) => {
+        totalPots += pot.total;
+    });
+
+    return { data, totalPots };
 }
 
 export async function getBudgets() {

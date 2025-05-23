@@ -1,11 +1,11 @@
-import { getAllTransactions } from "@/_lib/data-services";
 import Transactions from "@/app/transactions/_components/Transactions";
+import Loading from "@/components/Layout/Loading";
+import { Suspense } from "react";
 
-export default async function Page() {
-    const transactions = await getAllTransactions();
+export default function Page() {
     return (
-        <>
-            <Transactions transactions={transactions} />
-        </>
+        <Suspense fallback={<Loading />}>
+            <Transactions />
+        </Suspense>
     );
 }

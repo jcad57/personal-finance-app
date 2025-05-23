@@ -7,7 +7,7 @@ import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 export default async function BudgetOverviewCard() {
     const budgets = await getBudgets();
     return (
-        <PrimaryCard header="Budgets" more moreText="See Details" linkTo="budgets" altText="See Budget Details">
+        <PrimaryCard title="Budgets" more moreText="See Details" linkTo="budgets" altText="See Budget Details">
             <div className="flex flex-col md:items-center md:flex-row gap-[var(--spacing-md)] md:p-[var(--spacing-xl)]">
                 <div className="grid w-full">
                     <BudgetWheel />

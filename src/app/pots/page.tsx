@@ -1,11 +1,12 @@
-import Pots from "./_components/Pots";
-import { getAllPots } from "@/_lib/data-services";
-export default async function Page() {
-    const pots = await getAllPots();
+import { Suspense } from "react";
 
+import Pots from "./_components/Pots";
+import Loading from "@/components/Layout/Loading";
+
+export default function Page() {
     return (
-        <>
-            <Pots pots={pots} />
-        </>
+        <Suspense fallback={<Loading />}>
+            <Pots />
+        </Suspense>
     );
 }

@@ -1,12 +1,12 @@
-import { getBudgets } from "@/_lib/data-services";
+import { Suspense } from "react";
+
 import Budgets from "./_components/Budgets";
+import Loading from "@/components/Layout/Loading";
 
-export default async function Page() {
-    const budgetData = await getBudgets();
-
+export default function Page() {
     return (
-        <>
-            <Budgets budgetData={budgetData} />
-        </>
+        <Suspense fallback={<Loading />}>
+            <Budgets />
+        </Suspense>
     );
 }

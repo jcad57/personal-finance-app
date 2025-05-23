@@ -1,3 +1,4 @@
+import { getBudgets } from "@/_lib/data-services";
 import { BudgetOverviewItemProps } from "@/_lib/types";
 
 import BudgetWheel from "@/components/Layout/BudgetWheel";
@@ -8,8 +9,8 @@ import SpendingSummaryItem from "./SpendingSummaryItem";
 import BudgetCategoryItemWrapper from "./BudgetCategoryItemWrapper";
 import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 
-export default function Budgets({ budgetData }: { budgetData: BudgetOverviewItemProps[] }) {
-    // console.log(budgetData);
+export default async function Budgets() {
+    const budgetData: BudgetOverviewItemProps[] = await getBudgets();
     return (
         <FullPageWrapper>
             <PageHeader title="Budgets" showButton buttonText="+ Add New Budget" headerButton />

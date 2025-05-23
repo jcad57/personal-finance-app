@@ -1,4 +1,5 @@
 import { RecurringBillsProps } from "@/_lib/types";
+import { getRecurringBills } from "@/_lib/data-services";
 
 import filterIconMobile from "../../../../public/assets/images/icon-sort-mobile.svg";
 import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
@@ -11,7 +12,8 @@ import Summary from "./Summary";
 import Image from "next/image";
 import BillItemsTable from "./BillItemsTable";
 
-export default function RecurringBills({ recurringBills }: { recurringBills: RecurringBillsProps[] }) {
+export default async function RecurringBills() {
+    const recurringBills: RecurringBillsProps[] = await getRecurringBills();
     return (
         <FullPageWrapper>
             <PageHeader title="Recurring Bills" />

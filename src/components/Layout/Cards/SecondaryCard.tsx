@@ -14,9 +14,9 @@ export default function SecondaryCard({ children, childrenTop, title, value, acc
                 }`}>
                 {title}
             </h2>
-            <p className={`text-[length:var(--font-size-xl)] font-bold ${accent && "text-[var(--white)]"}`}>
+            <span className={`text-[length:var(--font-size-xl)] font-bold ${accent && "text-[var(--white)]"}`}>
                 {formatCurrency(value)}
-            </p>
+            </span>
             {!childrenTop && children}
         </div>
     );

@@ -9,7 +9,7 @@ export default async function TransactionsOverview() {
     const transactionOverview = Array.from(allTransactions).slice(0, 5);
     return (
         <PrimaryCard
-            header="Transactions"
+            title="Transactions"
             linkTo="/transactions"
             more
             moreText="View all"

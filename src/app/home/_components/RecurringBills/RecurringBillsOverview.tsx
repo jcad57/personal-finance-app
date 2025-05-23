@@ -4,7 +4,7 @@ import RecurringBillOverviewItem from "./RecurringBillOverviewItem";
 export default function RecurringBills() {
     return (
         <PrimaryCard
-            header="Recurring Bills"
+            title="Recurring Bills"
             more
             moreText="See Details"
             linkTo="recurring-bills"

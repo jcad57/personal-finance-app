@@ -1,4 +1,6 @@
 import { TransactionItemProps } from "@/_lib/types";
+import { getAllTransactions } from "@/_lib/data-services";
+
 import EmptyCard from "@/components/Layout/EmptyCard";
 import FullPageWrapper from "@/components/Layout/FullPageWrapper";
 import InputField from "@/components/Layout/InputField";
@@ -10,8 +12,9 @@ import sortIconMobile from "../../../../public/assets/images/icon-sort-mobile.sv
 import filterIconMobile from "../../../../public/assets/images/icon-filter-mobile.svg";
 
 //TODO: Add a pagination component to the transactions list
-export default function Transactions({ transactions }: { transactions: TransactionItemProps[] }) {
-    console.log(transactions);
+export default async function Transactions() {
+    const transactions: TransactionItemProps[] = await getAllTransactions();
+
     return (
         <FullPageWrapper>
             <PageHeader title="Transactions" />
