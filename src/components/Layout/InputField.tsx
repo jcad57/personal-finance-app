@@ -13,6 +13,7 @@ export default function InputField({
     helperText,
     maxWidth,
     isDisabled,
+    onClick,
 }: InputFieldProps) {
     return (
         <div className="flex flex-col gap-[4px]">
@@ -41,7 +42,7 @@ export default function InputField({
                 )}
                 {icon && (
                     <Image
-                        onClick={() => console.log("clicked")}
+                        onClick={onClick}
                         src={icon === "search" ? searchIcon : caretDown}
                         width={16}
                         height={16}

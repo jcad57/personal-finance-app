@@ -11,6 +11,10 @@ export default function PrimaryCard({
     moreText,
     accentDot,
     ellipsis,
+    editLabel,
+    deleteLabel,
+    onEditClick,
+    onDeleteClick,
     accentDotTheme,
     altText,
 }: PrimaryCardProps) {
@@ -25,6 +29,10 @@ export default function PrimaryCard({
                     accentDot={accentDot}
                     accentDotTheme={accentDotTheme}
                     ellipsis={ellipsis}
+                    editLabel={editLabel}
+                    deleteLabel={deleteLabel}
+                    onEditClick={onEditClick}
+                    onDeleteClick={onDeleteClick}
                     altText={altText}
                 />
             )}

@@ -3,8 +3,7 @@ import { useRouter } from "next/navigation";
 import { PrimaryCardProps } from "@/_lib/types";
 import { More } from "./More";
 
-import Image from "next/image";
-import ellipsisIcon from "../../../../public/assets/images/icon-ellipsis.svg";
+import DropDown from "../DropDown";
 
 export default function CardHeader({
     title,
@@ -14,6 +13,10 @@ export default function CardHeader({
     accentDot,
     accentDotTheme,
     ellipsis,
+    editLabel,
+    deleteLabel,
+    onEditClick,
+    onDeleteClick,
     altText,
 }: PrimaryCardProps) {
     const router = useRouter();
@@ -29,8 +32,15 @@ export default function CardHeader({
                     router.push(`/${linkTo ? linkTo.toLowerCase() : `/`}`);
                 }}>
                 {more && <More moreText={moreText} altText={altText} />}
-                {ellipsis && <Image src={ellipsisIcon} width={16} height={16} alt={altText || ""} />}
             </div>
+            {ellipsis && (
+                <DropDown
+                    editLabel={editLabel}
+                    deleteLabel={deleteLabel}
+                    onEditClick={onEditClick}
+                    onDeleteClick={onDeleteClick}
+                />
+            )}
         </div>
     );
 }

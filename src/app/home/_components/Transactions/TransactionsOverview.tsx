@@ -10,7 +10,7 @@ export default async function TransactionsOverview() {
     return (
         <PrimaryCard
             title="Transactions"
-            linkTo="/transactions"
+            linkTo="transactions"
             more
             moreText="View all"
             altText="View All Transactions">

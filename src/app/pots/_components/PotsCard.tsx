@@ -16,8 +16,24 @@ export default function PotsCard({
     totalSaved: number;
     theme: string;
 }) {
+    function handleEditClick(name: string) {
+        console.log(`Edit ${name}`);
+    }
+    function handleDeleteClick(name: string) {
+        console.log(`Delete ${name}`);
+    }
     return (
-        <PrimaryCard title={name} linkTo="pots" accentDot accentDotTheme={theme} ellipsis altText="Pots">
+        <PrimaryCard
+            title={name}
+            linkTo="pots"
+            accentDot
+            accentDotTheme={theme}
+            ellipsis
+            altText="Pots"
+            editLabel="Edit Pot"
+            deleteLabel="Delete Pot"
+            onEditClick={() => handleEditClick(name)}
+            onDeleteClick={() => handleDeleteClick(name)}>
             <div>
                 <div className="flex justify-between items-center pb-[var(--spacing-sm)]">
                     <span className="text-[var(--grey-500)] text-[length:var(--font-size-sm)]">Total Saved</span>

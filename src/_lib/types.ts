@@ -15,6 +15,14 @@ export interface TransactionItemProps extends TransactionOverviewItemProps {
     recurring?: boolean;
 }
 
+export interface BudgetCategoryProps {
+    budgetData: {
+        category: string;
+        maximum: number;
+        theme: string;
+    }[];
+}
+
 export interface BudgetOverviewItemProps {
     category: string;
     maximum: number;
@@ -45,6 +53,7 @@ export interface InputFieldProps {
     helperText?: string;
     maxWidth?: string;
     isDisabled?: boolean;
+    onClick?: () => void;
 }
 
 export interface PotsProps {
@@ -70,6 +79,10 @@ export interface CardHeaderProps {
     ellipsis?: boolean;
     accentDotTheme?: string;
     altText?: string;
+    editLabel?: string;
+    deleteLabel?: string;
+    onEditClick?: () => void;
+    onDeleteClick?: () => void;
 }
 
 export interface SecondaryCardProps {
@@ -87,4 +100,20 @@ export interface RecurringBillsProps {
     date: number;
     amount: number;
     avatar: string;
+}
+
+export interface RecurringBillsWrapperProps {
+    recurringBills: RecurringBillsProps[];
+}
+
+export interface SelectFieldProps {
+    sortOptions: {
+        id: number;
+        text: string;
+    }[];
+    selectedSort: string;
+    setSelectedSort: (value: string) => void;
+    minWidth?: string;
+    label: string;
+    icon?: string;
 }

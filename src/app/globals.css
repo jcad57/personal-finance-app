@@ -1,4 +1,13 @@
 @import "tailwindcss";
+@layer utilities {
+    .no-scrollbar {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+}
 @font-face {
     font-family: "PublicSans";
     src: url("/assets/fonts/PublicSans-VariableFont-wght.ttf") format("truetype");

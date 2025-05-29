@@ -6,8 +6,7 @@ import EmptyCard from "@/components/Layout/EmptyCard";
 import FullPageWrapper from "@/components/Layout/FullPageWrapper";
 import PageHeader from "@/components/Layout/PageHeader";
 import SpendingSummaryItem from "./SpendingSummaryItem";
-import BudgetCategoryItemWrapper from "./BudgetCategoryItemWrapper";
-import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
+import BudgetCategories from "./BudgetCategories";
 
 export default async function Budgets() {
     const budgetData: BudgetOverviewItemProps[] = await getBudgets();
@@ -41,26 +40,7 @@ export default async function Budgets() {
                         </div>
                     </EmptyCard>
                 </section>
-                <section id="budgets" className="flex flex-col gap-[var(--spacing-lg)] w-full">
-                    {budgetData?.map((item) => {
-                        return (
-                            <PrimaryCard
-                                key={item.category}
-                                title={item.category}
-                                accentDot
-                                accentDotTheme={item.theme}
-                                ellipsis>
-                                <BudgetCategoryItemWrapper
-                                    category={item.category}
-                                    maximum={item.maximum}
-                                    theme={item.theme}
-                                    key={item.theme}
-                                    spent={36}
-                                />
-                            </PrimaryCard>
-                        );
-                    })}
-                </section>
+                <BudgetCategories budgetData={budgetData} />
             </div>
         </FullPageWrapper>
     );
