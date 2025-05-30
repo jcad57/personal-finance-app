@@ -4,14 +4,14 @@ export interface DataTypes {
 }
 
 export interface TransactionOverviewItemProps {
-    date: string;
-    avatar: string;
+    date: string | number;
+    avatar?: string;
     name: string;
     amount: number;
 }
 
 export interface TransactionItemProps extends TransactionOverviewItemProps {
-    category: string;
+    category?: string;
     recurring?: boolean;
 }
 
@@ -102,17 +102,9 @@ export interface RecurringBillsProps {
     avatar: string;
 }
 
-export interface RecurringBillsWrapperProps {
-    recurringBills: RecurringBillsProps[];
-}
-
 export interface SelectFieldProps {
-    sortOptions: {
-        id: number;
-        text: string;
-    }[];
-    selectedSort: string;
-    setSelectedSort: (value: string) => void;
+    type: string;
+    options: { value: string; label: string }[];
     minWidth?: string;
     label: string;
     icon?: string;

@@ -1,7 +1,8 @@
 "use client";
 import { sortOptions } from "@/_lib/sorting-options";
-import { useState } from "react";
-import { RecurringBillsWrapperProps } from "@/_lib/types";
+import { RecurringBillsProps } from "@/_lib/types";
+import { useSearchParams } from "next/navigation";
+import { applySortAndFilter } from "@/_lib/helpers";
 
 import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 import InputField from "@/components/Layout/InputField";
@@ -9,28 +10,24 @@ import SelectField from "@/components/Layout/SelectField";
 import BillItem from "./BillItem";
 import BillItemsTable from "./BillItemsTable";
 
-const RecurringBillsWrapper = ({ recurringBills }: RecurringBillsWrapperProps) => {
-    const [selectedSort, setSelectedSort] = useState(sortOptions[0].text);
+const RecurringBillsWrapper = ({ recurringBills }: { recurringBills: RecurringBillsProps[] }) => {
+    const searchParams = useSearchParams();
+    const sortBy = searchParams.get("sort") || "time_asc";
+
+    const sorted = applySortAndFilter(recurringBills, sortBy);
 
     return (
         <div className="lg:col-span-2">
             <PrimaryCard>
                 <div className="flex items-center justify-between">
                     <InputField placeholderText="Search bills" icon="search" />
-                    <SelectField
-                        sortOptions={sortOptions}
-                        setSelectedSort={setSelectedSort}
-                        selectedSort={selectedSort}
-                        icon="sort"
-                        label="Sort by"
-                        minWidth="115px"
-                    />
+                    <SelectField type="sort" options={sortOptions} minWidth="115px" label="Sort by" icon="sort" />
                 </div>
                 {/* Mobile Layout: List */}
                 <section id="All Recurring Bills List" className="md:hidden">
-                    {recurringBills.map((bill) => (
+                    {sorted.map((bill, index) => (
                         <BillItem
-                            key={bill.id}
+                            key={index}
                             date={bill.date}
                             avatar={bill.avatar}
                             name={bill.name}

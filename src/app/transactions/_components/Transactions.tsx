@@ -1,12 +1,11 @@
-import { TransactionItemProps } from "@/_lib/types";
 import { getAllTransactions } from "@/_lib/data-services";
+import { TransactionItemProps } from "@/_lib/types";
 
 import EmptyCard from "@/components/Layout/EmptyCard";
 import FullPageWrapper from "@/components/Layout/FullPageWrapper";
 import PageHeader from "@/components/Layout/PageHeader";
-import TransactionItem from "@/app/transactions/_components/TransactionItem";
-
 import TransactionsPageHeader from "./TransactionsPageHeader";
+import AllTransactions from "./AllTransaction";
 
 export default async function Transactions() {
     const transactions: TransactionItemProps[] = await getAllTransactions();
@@ -18,20 +17,7 @@ export default async function Transactions() {
                 <div className="flex gap-[var(--spacing-lg)] justify-between">
                     <TransactionsPageHeader />
                 </div>
-                <div className="flex flex-col">
-                    {transactions?.map((transaction) => {
-                        return (
-                            <TransactionItem
-                                key={transaction.date}
-                                date={transaction.date}
-                                avatar={transaction.avatar}
-                                name={transaction.name}
-                                amount={transaction.amount}
-                                category={transaction.category}
-                            />
-                        );
-                    })}
-                </div>
+                <AllTransactions transactions={transactions} />
             </EmptyCard>
         </FullPageWrapper>
     );

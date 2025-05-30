@@ -1,18 +1,29 @@
 "use client";
 import { Listbox, Label, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { SelectFieldProps } from "@/_lib/types";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Image from "next/image";
 import caretDown from "../../../public/assets/images/icon-caret-down.svg";
 import sortIconMobile from "../../../public/assets/images/icon-sort-mobile.svg";
 import filterIconMobile from "../../../public/assets/images/icon-filter-mobile.svg";
+import { updateSearchParam } from "@/_lib/helpers";
 
-const SelectField = ({ sortOptions, selectedSort, setSelectedSort, minWidth, label, icon }: SelectFieldProps) => {
+const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const currentValue = searchParams.get(type) || options[0].value;
+
+    function handleChange(newValue: string) {
+        const newParams = updateSearchParam(searchParams, type, newValue);
+        router.push(`?${newParams.toString()}`);
+    }
+
     return (
         <div className="flex items-center gap-[var(--spacing-xs)]">
-            <Listbox value={selectedSort} onChange={setSelectedSort}>
+            <Listbox value={currentValue} onChange={handleChange}>
                 <Label className="hidden md:inline text-[var(--grey-500)] text-[length:var(--font-size-sm)]">
-                    {label}
+                    {options[0].label}
                 </Label>
                 <ListboxButton
                     // style={{ minWidth: minWidth || "auto" }}
@@ -20,7 +31,9 @@ const SelectField = ({ sortOptions, selectedSort, setSelectedSort, minWidth, lab
                         // (colorTag || prefix ? `ps-[48px] ` : `ps-[var(--spacing-md)] `) +
                         ` md:relative md:pe-[var(--spacing-xxl)] md:ps-[var(--spacing-md)] md:py-[var(--spacing-xs)] md:rounded-[var(--spacing-xxs)] md:border-1 md:border-[var(--beige-500)] md:bg-[var(--white)] md:text-left text-[var(--grey-900)] md:focus:border-[var(--grey-900)] md:focus:outline-none`
                     }>
-                    <span className="hidden md:inline">{selectedSort}</span>
+                    <span className="hidden md:inline">
+                        {options.find((opt: { value: string }) => opt.value === currentValue)?.label}
+                    </span>
                     <Image
                         src={caretDown}
                         width={16}
@@ -64,12 +77,12 @@ const SelectField = ({ sortOptions, selectedSort, setSelectedSort, minWidth, lab
                     style={{ minWidth: minWidth || "auto" }}
                     className="select-none px-[var(--spacing-md)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] mt-[var(--spacing-xxxs)] opacity-100 transition duration-100 ease-in data-leave:data-closed:opacity-0 focus:border-[var(--grey-900)] focus:outline-none">
                     <div className="max-h-[320px] overflow-y-auto no-scrollbar">
-                        {sortOptions.map((option) => (
+                        {options.map((option, index) => (
                             <ListboxOption
-                                key={option.id}
-                                value={option.text}
+                                key={index}
+                                value={option.value}
                                 className="data-selected:font-bold border-[var(--grey-100)] not-first:border-y-[1px] py-[var(--spacing-xs)] cursor-pointer">
-                                {option.text}
+                                {option.label}
                             </ListboxOption>
                         ))}
                     </div>
