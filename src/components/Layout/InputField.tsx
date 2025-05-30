@@ -1,5 +1,8 @@
 "use client";
 import { InputFieldProps } from "@/_lib/types";
+import { useRouter, useSearchParams } from "next/navigation";
+import { updateSearchParam } from "@/_lib/helpers";
+import { useRef } from "react";
 import Image from "next/image";
 
 import caretDown from "../../../public/assets/images/icon-caret-down.svg";
@@ -11,21 +14,36 @@ export default function InputField({
     prefix,
     colorTag,
     helperText,
-    maxWidth,
     isDisabled,
     onClick,
 }: InputFieldProps) {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const debounceRef = useRef<NodeJS.Timeout | null>(null);
+
+    function handleInputChange(value: string) {
+        const newParams = updateSearchParam(searchParams, "search", value);
+        if (debounceRef.current) {
+            clearTimeout(debounceRef.current);
+        }
+
+        debounceRef.current = setTimeout(() => {
+            router.push(`?${newParams.toString()}`, { scroll: false });
+        }, 300);
+    }
     return (
         <div className="flex flex-col gap-[4px]">
             <div className="flex flex-col relative">
                 <input
                     disabled={isDisabled}
                     type="text"
-                    style={{ maxWidth: maxWidth ? `${maxWidth}` : "100%" }}
+                    onChange={(e) => {
+                        handleInputChange(e.target.value);
+                    }}
                     className={
                         (icon ? `pe-[var(--spacing-xxl)] ` : `pe-[var(--spacing-md)] `) +
                         (colorTag || prefix ? `ps-[48px] ` : `ps-[var(--spacing-md)] `) +
-                        ` py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] placeholder:text-[var(--beige-500)] placeholder:text-[length:var(--font-size-sm)] focus:border-[var(--grey-900)] focus:outline-none`
+                        ` w-full max-w-[320px] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] placeholder:text-[var(--beige-500)] placeholder:text-[length:var(--font-size-sm)] focus:border-[var(--grey-900)] focus:outline-none`
                     }
                     placeholder={placeholderText}
                 />

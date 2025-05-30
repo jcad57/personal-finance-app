@@ -28,7 +28,7 @@ export function applySortAndFilter<
         category?: string;
         avatar?: string;
     }
->(data: T[], sortBy: string, filterBy?: string): T[] {
+>(data: T[], sortBy: string, filterBy?: string, searchBy?: string): T[] {
     let filteredData = data;
 
     if (filterBy && filterBy !== "all") {
@@ -47,6 +47,12 @@ export function applySortAndFilter<
         filteredData.sort((a, b) => b.amount - a.amount);
     } else if (sortBy === "amount_asc") {
         filteredData.sort((a, b) => a.amount - b.amount);
+    }
+
+    if (searchBy) {
+        filteredData = filteredData.filter((item) => {
+            return item.name.toLowerCase().includes(searchBy.toLowerCase());
+        });
     }
 
     return filteredData;

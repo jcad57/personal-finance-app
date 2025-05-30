@@ -14,7 +14,7 @@ export default async function Transactions() {
         <FullPageWrapper>
             <PageHeader title="Transactions" />
             <EmptyCard>
-                <div className="flex gap-[var(--spacing-lg)] justify-between">
+                <div className="flex gap-[var(--spacing-lg)]">
                     <TransactionsPageHeader />
                 </div>
                 <AllTransactions transactions={transactions} />

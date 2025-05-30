@@ -2,12 +2,12 @@
 import { Listbox, Label, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { SelectFieldProps } from "@/_lib/types";
 import { useRouter, useSearchParams } from "next/navigation";
+import { updateSearchParam } from "@/_lib/helpers";
 
 import Image from "next/image";
 import caretDown from "../../../public/assets/images/icon-caret-down.svg";
 import sortIconMobile from "../../../public/assets/images/icon-sort-mobile.svg";
 import filterIconMobile from "../../../public/assets/images/icon-filter-mobile.svg";
-import { updateSearchParam } from "@/_lib/helpers";
 
 const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
     const searchParams = useSearchParams();
@@ -49,7 +49,7 @@ const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
                             width={20}
                             height={20}
                             alt="Sort list"
-                            className="cursor-pointer block md:hidden"
+                            className="cursor-pointer block md:hidden min-w-[20px]"
                         />
                     )}
                     {icon === "filter" && (
@@ -58,7 +58,7 @@ const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
                             width={20}
                             height={20}
                             alt="Filter the results"
-                            className="cursor-pointer block md:hidden"
+                            className="cursor-pointer block md:hidden min-w-[20px]"
                         />
                     )}
                     {icon === "dots" && (
