@@ -5,7 +5,7 @@ export interface DataTypes {
 
 export interface TransactionOverviewItemProps {
     date: string | number;
-    avatar?: string;
+    avatar: string;
     name: string;
     amount: number;
 }

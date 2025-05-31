@@ -5,7 +5,8 @@ export function formatCurrency(amount: number) {
     }).format(amount);
 }
 
-export function formatDate(date: string) {
+export function formatDate(date: string | number) {
+    if (typeof date === "number") return;
     return new Date(date).toLocaleDateString("en-UK", {
         day: "numeric",
         month: "short",

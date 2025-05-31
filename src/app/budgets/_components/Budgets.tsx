@@ -4,15 +4,16 @@ import { BudgetOverviewItemProps } from "@/_lib/types";
 import BudgetWheel from "@/components/Layout/BudgetWheel";
 import EmptyCard from "@/components/Layout/EmptyCard";
 import FullPageWrapper from "@/components/Layout/FullPageWrapper";
-import PageHeader from "@/components/Layout/PageHeader";
 import SpendingSummaryItem from "./SpendingSummaryItem";
 import BudgetCategories from "./BudgetCategories";
+import BudgetPageHeader from "./BudgetPageHeader";
 
 export default async function Budgets() {
     const budgetData: BudgetOverviewItemProps[] = await getBudgets();
+
     return (
         <FullPageWrapper>
-            <PageHeader title="Budgets" showButton buttonText="+ Add New Budget" headerButton />
+            <BudgetPageHeader />
             <div className="lg:flex gap-[var(--spacing-xl)]">
                 <section id="budget-wheel" className="flex flex-col pb-[var(--spacing-lg)] w-full lg:max-w-[650px]">
                     <EmptyCard>
@@ -21,7 +22,7 @@ export default async function Budgets() {
                                 <BudgetWheel />
                             </div>
                             <div className=" md:py-[var(--spacing-md)] lg:py-0 ">
-                                <h2 className="font-bold text-[var(--grey-900)] text-[length:var(--font-size-lg)] pb-[var(--spacing-lg)] ">
+                                <h2 className="font-bold text-[var(--grey-900)] text-[length:var(--font-size-lg)] pb-[var(--spacing-lg)] pt-[var(--spacing-lg)] md:pt-0">
                                     Spending Summary
                                 </h2>
                                 <div className="flex flex-col">
