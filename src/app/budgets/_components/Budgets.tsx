@@ -1,5 +1,6 @@
 import { getAllTransactions, getBudgets } from "@/_lib/data-services";
 import { BudgetOverviewItemProps, TransactionItemProps } from "@/_lib/types";
+import { filterBudgetTotalSpending } from "@/_lib/helpers";
 
 import BudgetWheel from "@/components/Layout/BudgetWheel";
 import EmptyCard from "@/components/Layout/EmptyCard";
@@ -7,7 +8,6 @@ import FullPageWrapper from "@/components/Layout/FullPageWrapper";
 import SpendingSummaryItem from "./SpendingSummaryItem";
 import BudgetCategories from "./BudgetCategories";
 import BudgetPageHeader from "./BudgetPageHeader";
-import { filterBudgetTotalSpending } from "@/_lib/helpers";
 
 export default async function Budgets() {
     const budgetData: BudgetOverviewItemProps[] = await getBudgets();

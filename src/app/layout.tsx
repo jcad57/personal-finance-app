@@ -21,10 +21,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`h-screen font-[family-name:var(${publicSans.variable})] antialiased`}>
+            <body className={`min-h-screen font-[family-name:var(${publicSans.variable})] antialiased`}>
                 <Providers>
-                    <div className="h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)]">
-                        {children} <Navigation />
+                    <div className="lg:h-screen lg:flex lg:flex-row-reverse bg-[var(--beige-300)]">
+                        {children}
+                        <Navigation />
                     </div>
                 </Providers>
             </body>

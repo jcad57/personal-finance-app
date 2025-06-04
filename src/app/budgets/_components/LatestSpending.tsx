@@ -1,6 +1,6 @@
 import { More } from "@/components/Layout/Cards/More";
-import LatestSpendingItem from "./LatestSpeindingItem";
 import { TransactionItemProps } from "@/_lib/types";
+import LatestSpendingItem from "./LatestSpeindingItem";
 
 export default function LatestSpending({
     category,

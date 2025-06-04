@@ -1,11 +1,17 @@
 "use client";
-import { BudgetCategoryProps } from "@/_lib/types";
+import { BudgetCategoryProps, TransactionItemProps } from "@/_lib/types";
 import { useModal } from "@/context/ModalContext";
 
 import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 import BudgetCategoryItemWrapper from "./BudgetCategoryItemWrapper";
 
-const BudgetCategories = ({ budgetData, transactionData }: BudgetCategoryProps) => {
+const BudgetCategories = ({
+    budgetData,
+    transactionData,
+}: {
+    budgetData: BudgetCategoryProps[];
+    transactionData: TransactionItemProps[];
+}) => {
     const { openModal } = useModal();
 
     return (
@@ -28,7 +34,6 @@ const BudgetCategories = ({ budgetData, transactionData }: BudgetCategoryProps) 
                             maximum={item.maximum}
                             theme={item.theme}
                             key={item.theme}
-                            spent={36}
                         />
                     </PrimaryCard>
                 );

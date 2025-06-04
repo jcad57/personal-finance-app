@@ -16,7 +16,7 @@ export default function Home() {
     }, [isLoggedIn, router]);
 
     return (
-        <div className="grid items-center justify-center h-full w-full">
+        <div className="grid items-center justify-center h-full min-h-screen w-full">
             <h1>Loading...</h1>
         </div>
     );

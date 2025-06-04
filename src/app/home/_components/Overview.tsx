@@ -13,7 +13,7 @@ export default async function Overview() {
     const overviewData: OverviewDataType = await getOverviewData();
 
     return (
-        <main className="px-[var(--spacing-sm)] py-[var(--spacing-lg)] pb-[52px] lg:pb-[var(--spacing-lg)] lg:w-full md:p-[40px] overflow-y-auto">
+        <main className="px-[var(--spacing-sm)] py-[var(--spacing-lg)] pb-[52px] lg:pb-[var(--spacing-lg)] lg:w-full md:p-[40px] md:h-full overflow-y-auto">
             <h1 className="text-[length:var(--font-size-xl)] font-bold">Overview</h1>
 
             <section

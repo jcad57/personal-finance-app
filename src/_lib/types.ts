@@ -16,20 +16,16 @@ export interface TransactionItemProps extends TransactionOverviewItemProps {
 }
 
 export interface BudgetCategoryProps {
-    transactionData: TransactionOverviewItemProps[];
-    budgetData: {
-        category: string;
-        maximum: number;
-        theme: string;
-    }[];
-}
-
-export interface BudgetOverviewItemProps {
-    transactionData: TransactionOverviewItemProps[];
     category: string;
     maximum: number;
     theme: string;
-    spent: number;
+}
+
+export interface BudgetOverviewItemProps {
+    transactionData: TransactionItemProps[];
+    category: string;
+    maximum: number;
+    theme: string;
 }
 
 export interface OverviewDataType {
