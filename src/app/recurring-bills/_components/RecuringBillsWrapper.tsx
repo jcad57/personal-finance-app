@@ -21,7 +21,7 @@ const RecurringBillsWrapper = ({ recurringBills }: { recurringBills: RecurringBi
             <PrimaryCard>
                 <div className="flex items-center justify-between">
                     <InputField placeholderText="Search bills" icon="search" />
-                    <SelectField type="sort" options={sortOptions} minWidth="115px" label="Sort by" icon="sort" />
+                    <SelectField type="sort" options={sortOptions} minWidth="115px" icon="sort" />
                 </div>
                 {/* Mobile Layout: List */}
                 <section id="All Recurring Bills List" className="md:hidden">

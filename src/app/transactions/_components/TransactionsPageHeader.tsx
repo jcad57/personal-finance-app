@@ -12,17 +12,17 @@ const TransactionsPageHeader = () => {
             {/* Large Screen */}
             <div className="hidden md:flex gap-[var(--spacing-lg)]">
                 <div className=" flex md:items-center gap-[var(--spacing-xxs)]">
-                    <SelectField type="sort" options={sortOptions} label="Sort by" />
+                    <SelectField type="sort" options={sortOptions} />
                 </div>
                 <div className="flex md:items-center gap-[var(--spacing-xxs)] ">
-                    <SelectField type="filter" options={filterOptions} label="Category" />
+                    <SelectField type="filter" options={filterOptions} />
                 </div>
             </div>
 
             {/* Small Screen */}
             <div className="flex gap-[var(--spacing-lg)] md:hidden">
-                <SelectField icon="sort" type="sort" options={sortOptions} label="Sort by" />
-                <SelectField icon="filter" type="filter" options={filterOptions} label="Category" />
+                <SelectField icon="sort" type="sort" options={sortOptions} />
+                <SelectField icon="filter" type="filter" options={filterOptions} />
             </div>
         </div>
     );

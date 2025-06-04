@@ -25,6 +25,7 @@ const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
                 <Label className="hidden md:inline text-[var(--grey-500)] text-[length:var(--font-size-sm)]">
                     {options[0].label}
                 </Label>
+
                 <ListboxButton
                     // style={{ minWidth: minWidth || "auto" }}
                     className={

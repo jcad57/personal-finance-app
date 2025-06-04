@@ -1,5 +1,6 @@
 "use client";
 import { formatCurrency } from "@/_lib/helpers";
+import { useModal } from "@/context/ModalContext";
 
 import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 import PotsProgressBar from "./PotsProgressBar";
@@ -16,12 +17,13 @@ export default function PotsCard({
     totalSaved: number;
     theme: string;
 }) {
-    function handleEditClick(name: string) {
-        console.log(`Edit ${name}`);
-    }
-    function handleDeleteClick(name: string) {
-        console.log(`Delete ${name}`);
-    }
+    const { openModal } = useModal();
+    // function handleEditClick(name: string) {
+    //     console.log(`Edit ${name}`);
+    // }
+    // function handleDeleteClick(name: string) {
+    //     console.log(`Delete ${name}`);
+    // }
     return (
         <PrimaryCard
             title={name}
@@ -32,8 +34,8 @@ export default function PotsCard({
             altText="Pots"
             editLabel="Edit Pot"
             deleteLabel="Delete Pot"
-            onEditClick={() => handleEditClick(name)}
-            onDeleteClick={() => handleDeleteClick(name)}>
+            onEditClick={() => openModal("edit-pot", { pot: name })}
+            onDeleteClick={() => openModal("delete-pot", { pot: name })}>
             <div>
                 <div className="flex justify-between items-center pb-[var(--spacing-sm)]">
                     <span className="text-[var(--grey-500)] text-[length:var(--font-size-sm)]">Total Saved</span>
@@ -50,8 +52,29 @@ export default function PotsCard({
                 </div>
             </div>
             <div className="flex justify-between items-center gap-[var(--spacing-md)] pt-[var(--spacing-xl)]">
-                <Button buttonText="Add Money" onClick={() => console.log("clicked")} icon="+" />
-                <Button buttonText="Withdraw" onClick={() => console.log("clicked")} />
+                <Button
+                    buttonText="Add Money"
+                    onClick={() =>
+                        openModal("edit-savings", {
+                            modalType: "add",
+                            theme: theme,
+                            totalSaved: totalSaved,
+                            target: target,
+                        })
+                    }
+                    icon="+"
+                />
+                <Button
+                    buttonText="Withdraw"
+                    onClick={() =>
+                        openModal("edit-savings", {
+                            modalType: "withdraw",
+                            theme: theme,
+                            totalSaved: totalSaved,
+                            target: target,
+                        })
+                    }
+                />
             </div>
         </PrimaryCard>
     );

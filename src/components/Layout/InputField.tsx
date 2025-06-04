@@ -43,7 +43,7 @@ export default function InputField({
                     className={
                         (icon ? `pe-[var(--spacing-xxl)] ` : `pe-[var(--spacing-md)] `) +
                         (colorTag || prefix ? `ps-[48px] ` : `ps-[var(--spacing-md)] `) +
-                        ` w-full max-w-[320px] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] placeholder:text-[var(--beige-500)] placeholder:text-[length:var(--font-size-sm)] focus:border-[var(--grey-900)] focus:outline-none`
+                        ` w-full max-w-[320px] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] hover:cursor-pointer hover:border-[var(--grey-900)] placeholder:text-[var(--beige-500)] placeholder:text-[length:var(--font-size-sm)] focus:border-[var(--grey-900)] focus:outline-none`
                     }
                     placeholder={placeholderText}
                 />

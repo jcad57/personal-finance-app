@@ -1,10 +1,10 @@
 "use client";
-// import AddNewItemModal from "@/components/Layout/Modals/AddNewItemModal";
+import { useModal } from "@/context/ModalContext";
+
 import PageHeader from "@/components/Layout/PageHeader";
-// import { useState } from "react";
 
 const BudgetPageHeader = () => {
-    // const [showAddNewBudgetModal, setShowAddNewBudgetModal] = useState(false);
+    const { openModal } = useModal();
 
     return (
         <>
@@ -13,15 +13,8 @@ const BudgetPageHeader = () => {
                 showButton
                 buttonText="+ Add New Budget"
                 headerButton
-                // onClick={() => setShowAddNewBudgetModal((prev) => !prev)}
+                onClick={() => openModal("add-budget", {})}
             />
-
-            {/* {showAddNewBudgetModal && (
-                <AddNewItemModal
-                    title="Add New Budget"
-                    description="Choose a category to set a spending budget. These categories can help you monitor spending."
-                />
-            )} */}
         </>
     );
 };

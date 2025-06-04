@@ -106,6 +106,5 @@ export interface SelectFieldProps {
     type: string;
     options: { value: string; label: string }[];
     minWidth?: string;
-    label: string;
     icon?: string;
 }
