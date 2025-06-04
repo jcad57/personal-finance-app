@@ -139,9 +139,7 @@ const ModalForm = ({ setSelectedCategory, selectedCategory, selectedTheme, setSe
                     alt=""
                     className="absolute right-[8px] bottom-[16px] translate-[-50%]"
                 />
-                <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">
-                    Budget Category
-                </Label>
+                <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">Theme</Label>
                 <Listbox value={selectedTheme} onChange={setSelectedTheme}>
                     <ListboxButton className="flex items-center gap-[var(--spacing-xs)] appearance-none pe-[var(--spacing-xxl)] ps-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none">
                         <div

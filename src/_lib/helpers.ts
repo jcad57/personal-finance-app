@@ -1,3 +1,5 @@
+import { RecurringBillsProps, TransactionItemProps } from "./types";
+
 export function formatCurrency(amount: number) {
     return new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -57,4 +59,61 @@ export function applySortAndFilter<
     }
 
     return filteredData;
+}
+
+export function filterBudgetTotalSpending(data: TransactionItemProps[]) {
+    const total = data.reduce((acc, item) => {
+        if (
+            item.category === "Entertainment" ||
+            item.category === "Dining Out" ||
+            item.category === "Bills" ||
+            item.category === "Personal Care"
+        ) {
+            return item.amount ? acc + item.amount : acc;
+        } else return acc;
+    }, 0);
+
+    return total * -1;
+}
+
+export function getPaidBills(bills: RecurringBillsProps[]) {
+    let numberOfPaidBills = 0;
+    const paidBills = bills
+        .filter((bill) => bill.status === "paid")
+        .reduce((acc, bill) => {
+            numberOfPaidBills++;
+            return acc + bill.amount;
+        }, 0);
+
+    return { paidBills, numberOfPaidBills };
+}
+
+export function getUpcomingBills(bills: RecurringBillsProps[]) {
+    let numberOfUpcomingBills = 0;
+    const upcomingBills = bills
+        .filter((bill) => {
+            const today = new Date();
+            return bill.status === "due" && bill.date > today.getDate() && bill.amount;
+        })
+        .reduce((acc, bill) => {
+            numberOfUpcomingBills++;
+            return acc + bill.amount;
+        }, 0);
+
+    return { upcomingBills, numberOfUpcomingBills };
+}
+
+export function getDueSoonBills(bills: RecurringBillsProps[]) {
+    let numberOfDueSoonBills = 0;
+    const dueSoon = bills
+        .filter((bill) => {
+            const today = new Date();
+            return bill.status === "due" && bill.date > today.getDate() && bill.date - today.getDate() <= 3;
+        })
+        .reduce((acc, bill) => {
+            numberOfDueSoonBills++;
+            return acc + bill.amount;
+        }, 0);
+
+    return { dueSoon, numberOfDueSoonBills };
 }

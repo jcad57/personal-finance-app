@@ -64,12 +64,14 @@ const AddEditPot = ({ ...modalProps }) => {
 };
 
 export default AddEditPot;
+
 type ModalFormProps = {
     potName: string;
     setPotName: (name: string) => void;
     selectedTheme: { value: string; label: string };
     setSelectedTheme: (theme: { value: string; label: string }) => void;
 };
+
 const ModalForm = ({ selectedTheme, setSelectedTheme, potName, setPotName }: ModalFormProps) => {
     const charsLeft = 30 - potName.length;
     return (

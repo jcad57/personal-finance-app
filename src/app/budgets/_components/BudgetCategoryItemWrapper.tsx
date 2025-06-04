@@ -5,7 +5,13 @@ import SpendingProgressBar from "./SpendingProgressBar";
 import TinyPot from "@/components/Layout/TinyPot";
 import LatestSpending from "./LatestSpending";
 
-export default function BudgetCategoryItemWrapper({ maximum, theme, spent }: BudgetOverviewItemProps) {
+export default function BudgetCategoryItemWrapper({
+    transactionData,
+    category,
+    maximum,
+    theme,
+    spent,
+}: BudgetOverviewItemProps) {
     return (
         <div className="flex flex-col gap-[var(--spacing-md)]">
             <div className="flex flex-col gap-[var(--spacing-sm)]">
@@ -18,7 +24,7 @@ export default function BudgetCategoryItemWrapper({ maximum, theme, spent }: Bud
                     <TinyPot title="Free" amount={maximum - spent} />
                 </div>
             </div>
-            <LatestSpending />
+            <LatestSpending category={category} transactionData={transactionData} />
         </div>
     );
 }

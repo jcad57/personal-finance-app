@@ -5,7 +5,7 @@ import { doughnutData, budgetLimit } from "@/_lib/budget-wheel-data";
 
 ChartJS.register(ArcElement, Legend);
 
-export default function BudgetWheel() {
+export default function BudgetWheel({ totalSpending }: { totalSpending: number }) {
     const options = {
         maintainAspectRatio: true,
         responsive: false,
@@ -13,7 +13,7 @@ export default function BudgetWheel() {
     return (
         <div className="relative grid place-items-center">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                <p className="text-[length:var(--font-size-xl)] font-bold">$338</p>
+                <p className="text-[length:var(--font-size-xl)] font-bold">${Math.ceil(totalSpending)}</p>
                 <p className="text-[length:var(--font-size-xs)] text-[var(--grey-500)] text-center">
                     of ${budgetLimit} limit
                 </p>

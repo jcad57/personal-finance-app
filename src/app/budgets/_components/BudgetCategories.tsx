@@ -5,7 +5,7 @@ import { useModal } from "@/context/ModalContext";
 import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 import BudgetCategoryItemWrapper from "./BudgetCategoryItemWrapper";
 
-const BudgetCategories = ({ budgetData }: BudgetCategoryProps) => {
+const BudgetCategories = ({ budgetData, transactionData }: BudgetCategoryProps) => {
     const { openModal } = useModal();
 
     return (
@@ -23,6 +23,7 @@ const BudgetCategories = ({ budgetData }: BudgetCategoryProps) => {
                         onEditClick={() => openModal("edit-budget", { budgetCategory: item.category })}
                         onDeleteClick={() => openModal("delete-budget", { budgetCategory: item.category })}>
                         <BudgetCategoryItemWrapper
+                            transactionData={transactionData}
                             category={item.category}
                             maximum={item.maximum}
                             theme={item.theme}

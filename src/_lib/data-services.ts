@@ -81,7 +81,6 @@ export async function getRecurringBills() {
         console.error(error);
         throw new Error("Error fetching budgets");
     }
-
     return data;
 }
 

@@ -16,6 +16,7 @@ export interface TransactionItemProps extends TransactionOverviewItemProps {
 }
 
 export interface BudgetCategoryProps {
+    transactionData: TransactionOverviewItemProps[];
     budgetData: {
         category: string;
         maximum: number;
@@ -24,6 +25,7 @@ export interface BudgetCategoryProps {
 }
 
 export interface BudgetOverviewItemProps {
+    transactionData: TransactionOverviewItemProps[];
     category: string;
     maximum: number;
     theme: string;
@@ -96,6 +98,7 @@ export interface SecondaryCardProps {
 
 export interface RecurringBillsProps {
     id?: string;
+    status?: "paid" | "due";
     name: string;
     date: number;
     amount: number;

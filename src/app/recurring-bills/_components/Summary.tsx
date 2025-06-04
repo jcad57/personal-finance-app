@@ -1,40 +1,49 @@
+import { formatCurrency } from "@/_lib/helpers";
 import SummaryItem from "./SummaryItem";
 
-const SUMMARY_DATA = [
-    {
-        id: 1,
-        label: "Paid Bills",
-        value: "2 ($320.00)",
-    },
-    {
-        id: 2,
-        label: "Total Upcoming",
-        value: "2 ($320.00)",
-    },
-    {
-        id: 3,
-        label: "Due Soon",
-        value: "2 ($320.00)",
-    },
-];
+type SummaryData = {
+    paidBills: { paidBills: number; numberOfPaidBills: number };
+    totalUpcomingBills: { upcomingBills: number; numberOfUpcomingBills: number };
+    dueSoonBills: { dueSoon: number; numberOfDueSoonBills: number };
+};
 
-export default function Summary() {
+export default function Summary({ paidBills, totalUpcomingBills, dueSoonBills }: SummaryData) {
+    const SUMMARY_DATA = [
+        {
+            id: 1,
+            label: "Paid Bills",
+            value: paidBills.paidBills,
+            total: paidBills.numberOfPaidBills,
+        },
+        {
+            id: 2,
+            label: "Total Upcoming",
+            value: totalUpcomingBills.upcomingBills,
+            total: totalUpcomingBills.numberOfUpcomingBills,
+        },
+        {
+            id: 3,
+            label: "Due Soon",
+            value: dueSoonBills.dueSoon,
+            total: dueSoonBills.numberOfDueSoonBills,
+        },
+    ];
+
     return (
-        <div>
+        <ul>
             {SUMMARY_DATA.map((item) => {
                 return (
-                    <div
+                    <li
                         key={item.id}
                         className="flex justify-between not-first:border-t-[1px] last:pt-[var(--spacing-xs)] [&:not(:first-child):not(:last-child)]:py-[var(--spacing-xs)] first:pb-[var(--spacing-xs)] not-first:border-[var(--grey-500)]/15">
                         <SummaryItem
                             label={item.label}
-                            value={item.value}
-                            key={item.id}
-                            textColor={item.label === "Due Soon" ? "--red" : "--grey-500"}
+                            value={` ${item.total} (${formatCurrency(item.value)})`}
+                            textColor={item.label === "Due Soon" ? "--red" : "--grey-900"}
                         />
-                    </div>
+                    </li>
                 );
             })}
-        </div>
+        </ul>
     );
 }

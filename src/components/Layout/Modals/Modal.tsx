@@ -37,6 +37,8 @@ const Modal = () => {
 
     return (
         <div
+            role="dialog"
+            aria-modal="true"
             className={`absolute top-0 left-0 w-full h-full z-1000 bg-black/55 transition-all duration-500 ease-in-out`}>
             <div className="grid items-center justify-center mx-[var(--spacing-md)] h-full ">
                 <div className="w-screen max-w-[560px] px-[var(--spacing-md)]">

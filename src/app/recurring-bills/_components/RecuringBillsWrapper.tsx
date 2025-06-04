@@ -13,8 +13,10 @@ import BillItemsTable from "./BillItemsTable";
 const RecurringBillsWrapper = ({ recurringBills }: { recurringBills: RecurringBillsProps[] }) => {
     const searchParams = useSearchParams();
     const sortBy = searchParams.get("sort") || "time_asc";
+    const filterBy = searchParams.get("filter") || "all";
+    const searchBy = searchParams.get("search") || "";
 
-    const sorted = applySortAndFilter(recurringBills, sortBy);
+    const sorted = applySortAndFilter(recurringBills, sortBy, filterBy, searchBy);
 
     return (
         <div className="lg:col-span-2">
@@ -38,7 +40,7 @@ const RecurringBillsWrapper = ({ recurringBills }: { recurringBills: RecurringBi
 
                 {/* Desktop/Tablet Layout: Table */}
                 <section id="All Recurring Bills Table" className="hidden md:block">
-                    <BillItemsTable recurringBills={recurringBills} />
+                    <BillItemsTable recurringBills={sorted} />
                 </section>
             </PrimaryCard>
         </div>

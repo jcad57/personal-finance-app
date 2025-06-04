@@ -1,5 +1,5 @@
-import { getBudgets } from "@/_lib/data-services";
-import { BudgetOverviewItemProps } from "@/_lib/types";
+import { getAllTransactions, getBudgets } from "@/_lib/data-services";
+import { BudgetOverviewItemProps, TransactionItemProps } from "@/_lib/types";
 
 import BudgetWheel from "@/components/Layout/BudgetWheel";
 import EmptyCard from "@/components/Layout/EmptyCard";
@@ -7,9 +7,13 @@ import FullPageWrapper from "@/components/Layout/FullPageWrapper";
 import SpendingSummaryItem from "./SpendingSummaryItem";
 import BudgetCategories from "./BudgetCategories";
 import BudgetPageHeader from "./BudgetPageHeader";
+import { filterBudgetTotalSpending } from "@/_lib/helpers";
 
 export default async function Budgets() {
     const budgetData: BudgetOverviewItemProps[] = await getBudgets();
+    const transactionData: TransactionItemProps[] = await getAllTransactions();
+
+    const totalSpending = filterBudgetTotalSpending(transactionData);
 
     return (
         <FullPageWrapper>
@@ -19,7 +23,7 @@ export default async function Budgets() {
                     <EmptyCard>
                         <div className="block md:grid md:grid-cols-2 md:items-center lg:block">
                             <div className="mx-auto w-full lg:pb-[var(--spacing-xl)]">
-                                <BudgetWheel />
+                                <BudgetWheel totalSpending={totalSpending} />
                             </div>
                             <div className=" md:py-[var(--spacing-md)] lg:py-0 ">
                                 <h2 className="font-bold text-[var(--grey-900)] text-[length:var(--font-size-lg)] pb-[var(--spacing-lg)] pt-[var(--spacing-lg)] md:pt-0">
@@ -29,6 +33,7 @@ export default async function Budgets() {
                                     {budgetData?.map((budget) => {
                                         return (
                                             <SpendingSummaryItem
+                                                transactionData={transactionData}
                                                 category={budget.category}
                                                 maximum={budget.maximum}
                                                 theme={budget.theme}
@@ -41,7 +46,7 @@ export default async function Budgets() {
                         </div>
                     </EmptyCard>
                 </section>
-                <BudgetCategories budgetData={budgetData} />
+                <BudgetCategories budgetData={budgetData} transactionData={transactionData} />
             </div>
         </FullPageWrapper>
     );
