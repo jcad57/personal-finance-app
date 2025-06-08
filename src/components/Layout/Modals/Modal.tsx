@@ -4,9 +4,8 @@ import { useModal } from "@/context/ModalContext";
 import EmptyCard from "../EmptyCard";
 import AddEditBudget from "./AddEditBudget";
 import AddEditPot from "./AddEditPot";
-import DeleteBudget from "./DeleteBudget";
-import DeletePot from "./DeletePot";
 import EditSavings from "./EditSavings";
+import DeleteItem from "./DeleteItem";
 
 const Modal = () => {
     const { modalType, isModalOpen, modalProps } = useModal();
@@ -20,16 +19,15 @@ const Modal = () => {
             case "edit-budget":
                 return <AddEditBudget {...modalProps} modalType="edit" />;
             case "delete-budget":
-                return <DeleteBudget {...modalProps} />;
+                return <DeleteItem {...modalProps} />;
             case "add-pot":
                 return <AddEditPot {...modalProps} modalType="add" />;
             case "edit-pot":
                 return <AddEditPot {...modalProps} modalType="edit" />;
             case "delete-pot":
-                return <DeletePot {...modalProps} />;
+                return <DeleteItem {...modalProps} />;
             case "edit-savings":
                 return <EditSavings {...modalProps} />;
-
             default:
                 return null;
         }

@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export interface DataTypes {
     transactions: TransactionOverviewItemProps[];
     budgets: BudgetOverviewItemProps[];
@@ -36,7 +38,7 @@ export interface OverviewDataType {
 }
 
 export interface NavigationTabProps {
-    icon: string;
+    icon: JSX.Element;
     label: string;
     text: string;
     isActive: boolean;

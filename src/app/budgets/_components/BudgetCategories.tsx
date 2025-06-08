@@ -27,7 +27,7 @@ const BudgetCategories = ({
                         editLabel="Edit Budget"
                         deleteLabel="Delete Budget"
                         onEditClick={() => openModal("edit-budget", { budgetCategory: item.category })}
-                        onDeleteClick={() => openModal("delete-budget", { budgetCategory: item.category })}>
+                        onDeleteClick={() => openModal("delete-budget", { name: item.category, type: "budget" })}>
                         <BudgetCategoryItemWrapper
                             transactionData={transactionData}
                             category={item.category}

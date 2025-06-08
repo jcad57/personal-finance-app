@@ -73,7 +73,14 @@ const AddEditBudget = ({ ...modalProps }) => {
                 selectedTheme={selectedTheme}
                 setSelectedTheme={setSelectedTheme}
             />
-            <Button primary buttonText={modalProps.modalType === "add" ? "Add Budget" : "Save Changes"} />
+            <Button
+                primary
+                buttonText={modalProps.modalType === "add" ? "Add Budget" : "Save Changes"}
+                onClick={closeModal}
+            />
+            <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">
+                DEMO MODE: Changes will not be saved
+            </p>
         </div>
     );
 };
@@ -129,6 +136,7 @@ const ModalForm = ({ setSelectedCategory, selectedCategory, selectedTheme, setSe
                     name="budget-category"
                     className="appearance-none ps-[42px] pe-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none"
                     placeholder="e.g. 2000"
+                    type="number"
                 />
             </Field>
             <Field className="relative flex flex-col gap-[4px]">

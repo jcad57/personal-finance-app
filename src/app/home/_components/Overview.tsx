@@ -1,19 +1,19 @@
 import { OverviewDataType } from "@/_lib/types";
 import { getOverviewData } from "@/_lib/data-services";
+import { Suspense } from "react";
 
-import PotsOverviewCard from "@/app/home/_components/PotsOverviewCard";
-import SecondaryCard from "@/components/Layout/Cards/SecondaryCard";
 import TransactionsOverview from "@/app/home/_components/Transactions/TransactionsOverview";
 import BudgetOverviewCard from "@/app/home/_components/BudgetsOverviewCard";
+import PotsOverviewCard from "@/app/home/_components/PotsOverviewCard";
 import RecurringBills from "@/app/home/_components/RecurringBills/RecurringBillsOverview";
+import SecondaryCard from "@/components/Layout/Cards/SecondaryCard";
 import Loading from "@/components/Layout/Loading";
-import { Suspense } from "react";
 
 export default async function Overview() {
     const overviewData: OverviewDataType = await getOverviewData();
 
     return (
-        <main className="px-[var(--spacing-sm)] py-[var(--spacing-lg)] pb-[52px] lg:pb-[var(--spacing-lg)] lg:w-full md:p-[40px] md:h-full overflow-y-auto">
+        <main className="overflow-y-auto px-[var(--spacing-sm)] py-[var(--spacing-lg)] pb-[89px] md:px-[40px] md:pt-[32px] md:pb-[123px] lg:py-[32px] md:h-full lg:w-full ">
             <h1 className="text-[length:var(--font-size-xl)] font-bold">Overview</h1>
 
             <section

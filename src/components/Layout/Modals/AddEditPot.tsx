@@ -1,4 +1,5 @@
 import { useModal } from "@/context/ModalContext";
+import { useState } from "react";
 import {
     Field,
     Fieldset,
@@ -9,7 +10,6 @@ import {
     ListboxOption,
     ListboxOptions,
 } from "@headlessui/react";
-import { useState } from "react";
 
 import closeModalIcon from "../../../../public/assets/images/icon-close-modal.svg";
 import caretDown from "../../../../public/assets/images/icon-caret-down.svg";
@@ -58,7 +58,14 @@ const AddEditPot = ({ ...modalProps }) => {
                 potName={potName}
                 setPotName={setPotName}
             />
-            <Button primary buttonText={modalProps.modalType === "add" ? `Add Pot` : "Save Changes"} />
+            <Button
+                primary
+                buttonText={modalProps.modalType === "add" ? `Add Pot` : "Save Changes"}
+                onClick={closeModal}
+            />
+            <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">
+                DEMO MODE: Changes will not be saved
+            </p>
         </div>
     );
 };

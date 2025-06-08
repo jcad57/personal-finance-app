@@ -16,10 +16,9 @@ export function formatDate(date: string | number) {
     });
 }
 
-export function updateSearchParam(params: URLSearchParams, key: string, value: string) {
+export function updateSearchParam(params: URLSearchParams, key: string, value: string | number) {
     const newParams = new URLSearchParams(params);
     newParams.set(key, value);
-    newParams.delete("page"); // reset pagination
     return newParams;
 }
 
@@ -31,7 +30,7 @@ export function applySortAndFilter<
         category?: string;
         avatar?: string;
     }
->(data: T[], sortBy: string, filterBy?: string, searchBy?: string): T[] {
+>(data: T[], sortBy: string, filterBy?: string, searchBy?: string, pageNumber?: number): T[] {
     let filteredData = data;
 
     if (filterBy && filterBy !== "all") {
@@ -56,6 +55,12 @@ export function applySortAndFilter<
         filteredData = filteredData.filter((item) => {
             return item.name.toLowerCase().includes(searchBy.toLowerCase());
         });
+    }
+
+    if (pageNumber) {
+        const startIndex = (pageNumber - 1) * 10;
+        const endIndex = startIndex + 10;
+        filteredData = filteredData.slice(startIndex, endIndex);
     }
 
     return filteredData;

@@ -1,8 +1,8 @@
 "use client";
 import { Listbox, Label, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
-import { SelectFieldProps } from "@/_lib/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { updateSearchParam } from "@/_lib/helpers";
+import { SelectFieldProps } from "@/_lib/types";
 
 import Image from "next/image";
 import caretDown from "../../../public/assets/images/icon-caret-down.svg";
@@ -10,13 +10,19 @@ import sortIconMobile from "../../../public/assets/images/icon-sort-mobile.svg";
 import filterIconMobile from "../../../public/assets/images/icon-filter-mobile.svg";
 
 const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
+    const { replace } = useRouter();
     const searchParams = useSearchParams();
-    const router = useRouter();
     const currentValue = searchParams.get(type) || options[0].value;
 
     function handleChange(newValue: string) {
         const newParams = updateSearchParam(searchParams, type, newValue);
-        router.push(`?${newParams.toString()}`);
+        newParams.delete("page");
+        if (newValue) {
+            newParams.set(type, newValue);
+        } else {
+            newParams.delete(type);
+        }
+        replace(`?${newParams.toString()}`);
     }
 
     return (
@@ -76,13 +82,13 @@ const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
                     anchor="bottom end"
                     transition
                     style={{ minWidth: minWidth || "auto" }}
-                    className="select-none px-[var(--spacing-md)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] mt-[var(--spacing-xxxs)] opacity-100 transition duration-100 ease-in data-leave:data-closed:opacity-0 focus:border-[var(--grey-900)] focus:outline-none">
-                    <div className="max-h-[320px] overflow-y-auto no-scrollbar">
+                    className="select-none px-[var(--spacing-md)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] mt-[var(--spacing-sm)] opacity-100 transition duration-100 ease-in data-leave:data-closed:opacity-0 focus:border-[var(--grey-900)] focus:outline-none shadow-lg">
+                    <div className="w-full max-h-[320px] overflow-y-auto no-scrollbar">
                         {options.map((option, index) => (
                             <ListboxOption
                                 key={index}
                                 value={option.value}
-                                className="data-selected:font-bold border-[var(--grey-100)] not-first:border-y-[1px] py-[var(--spacing-xs)] cursor-pointer">
+                                className="data-selected:font-bold border-[var(--grey-100)] not-first:border-y-[1px] py-[var(--spacing-xs)] px-[5px] cursor-pointer">
                                 {option.label}
                             </ListboxOption>
                         ))}

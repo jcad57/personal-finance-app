@@ -1,10 +1,10 @@
-import { useModal } from "@/context/ModalContext";
-import { formatCurrency } from "@/_lib/helpers";
-import { useState } from "react";
 import { Field, Input, Label } from "@headlessui/react";
+import { formatCurrency } from "@/_lib/helpers";
+import { useModal } from "@/context/ModalContext";
+import { useState } from "react";
 
-import Button from "../Button";
 import closeModalIcon from "../../../../public/assets/images/icon-close-modal.svg";
+import Button from "../Button";
 import Image from "next/image";
 
 const EditSavings = ({ ...modalProps }) => {
@@ -14,7 +14,6 @@ const EditSavings = ({ ...modalProps }) => {
     const [amountToWithdraw, setAmountToWithdraw] = useState(0);
     const currentSaved = modalProps.totalSaved || 0;
     const target = modalProps.target || null;
-    const theme = modalProps.theme || "black";
 
     function handleChange(value: number) {
         if (modalProps.modalType === "add") setAmountToAdd(value);
@@ -26,12 +25,13 @@ const EditSavings = ({ ...modalProps }) => {
             return prev - Number(value);
         });
     }
-    console.log(theme);
+
     return (
         <div className="relative grid gap-[20px]">
             <div className="flex items-center justify-between">
                 <h2 className="md:text-[length:var(--font-size-xl)] text-[length:var(--font-size-lg)] font-bold text-[var(--grey-900)]">
-                    {modalProps.modalType === "withdraw" ? `Withdraw from ` : `Add to `} &quot;Savings&quot;
+                    {modalProps.modalType === "withdraw" ? `Withdraw from ` : `Add to `} &quot;{modalProps.potName}
+                    &quot;
                 </h2>
                 <Image src={closeModalIcon} alt="Close Modal" className="cursor-pointer" onClick={closeModal} />
             </div>
@@ -82,7 +82,11 @@ const EditSavings = ({ ...modalProps }) => {
             <Button
                 primary
                 buttonText={modalProps.modalType === "withdraw" ? `Confirm Withdraw` : "Confirm Addition"}
+                onClick={closeModal}
             />
+            <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">
+                DEMO MODE: Changes will not be saved
+            </p>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 "use client";
-import { InputFieldProps } from "@/_lib/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { updateSearchParam } from "@/_lib/helpers";
+import { InputFieldProps } from "@/_lib/types";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -32,7 +32,7 @@ export default function InputField({
         }, 300);
     }
     return (
-        <div className="flex flex-col gap-[4px]">
+        <div className="flex flex-col gap-[4px] mr-[24px]">
             <div className="flex flex-col relative">
                 <input
                     disabled={isDisabled}

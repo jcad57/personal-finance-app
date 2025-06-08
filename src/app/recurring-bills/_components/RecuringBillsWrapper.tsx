@@ -27,15 +27,19 @@ const RecurringBillsWrapper = ({ recurringBills }: { recurringBills: RecurringBi
                 </div>
                 {/* Mobile Layout: List */}
                 <section id="All Recurring Bills List" className="md:hidden">
-                    {sorted.map((bill, index) => (
-                        <BillItem
-                            key={index}
-                            date={bill.date}
-                            avatar={bill.avatar}
-                            name={bill.name}
-                            amount={bill.amount}
-                        />
-                    ))}
+                    {sorted.length > 0 ? (
+                        sorted.map((bill, index) => (
+                            <BillItem
+                                key={index}
+                                date={bill.date}
+                                avatar={bill.avatar}
+                                name={bill.name}
+                                amount={bill.amount}
+                            />
+                        ))
+                    ) : (
+                        <div className="text-center text-[var(--grey-500)] py-[20px]">No recurring bills found.</div>
+                    )}
                 </section>
 
                 {/* Desktop/Tablet Layout: Table */}

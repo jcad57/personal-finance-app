@@ -14,10 +14,6 @@
 }
 
 :root {
-    /* TODO: update the colors to match the design system */
-    --background: #ededed;
-    --foreground: #171717;
-
     /* Primary Colors */
     --white: #ffffff;
     --beige-100: #f8f4f0;

@@ -23,8 +23,8 @@ export default function Navigation() {
     return (
         <nav
             className={`transition-all duration-300 ease-in-out overflow-x-hidden
-                ${expandNav ? ` lg:w-[330px] ` : ` lg:w-[110px] `}
-                w-full bg-[var(--grey-900)] fixed bottom-0 rounded-t-lg pt-2 px-[var(--spacing-lg)] md:px-[40px] lg:static lg:max-w-[300px] lg:px-0 lg:flex lg:flex-col lg:rounded-t-none lg:rounded-r-[var(--spacing-sm)] lg:pb-[var(--spacing-xxl)] z-100`}>
+                ${expandNav ? ` lg:w-[330px] ` : ` lg:w-[112px]`}
+                w-full bg-[var(--grey-900)] fixed bottom-0 rounded-t-lg pt-2 px-[var(--spacing-lg)] md:px-[40px] lg:relative lg:max-w-[300px] lg:px-0 lg:flex lg:flex-col lg:rounded-t-none lg:rounded-r-[var(--spacing-sm)] lg:pb-[var(--spacing-xxl)] z-100`}>
             <div className={`hidden relative lg:block my-[40px] mx-[var(--spacing-xl)]`}>
                 <Link href="/home">
                     <Image
@@ -46,11 +46,11 @@ export default function Navigation() {
                 </Link>
             </div>
             <div className="flex flex-col justify-between flex-1">
-                <ul className="flex justify-between items-center lg:flex-col lg:gap-[var(--spacing-xxxs)] lg:pt-[var(--spacing-lg)] lg:pr-[var(--spacing-lg)] ">
+                <ul className="flex justify-between items-center lg:flex-col lg:gap-[var(--spacing-xxxs)] lg:pt-[var(--spacing-lg)] lg:pr-[var(--spacing-lg)]">
                     {links.map((link) => (
                         <NavIcon
-                            key={link.label}
                             icon={link.icon}
+                            key={link.label}
                             label={link.label}
                             text={link.text}
                             isActive={pathname === `/${link.label}`}

@@ -2,8 +2,8 @@
 import { formatCurrency } from "@/_lib/helpers";
 import { useModal } from "@/context/ModalContext";
 
-import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 import PotsProgressBar from "./PotsProgressBar";
+import PrimaryCard from "@/components/Layout/Cards/PrimaryCard";
 import Button from "@/components/Layout/Button";
 
 export default function PotsCard({
@@ -18,12 +18,7 @@ export default function PotsCard({
     theme: string;
 }) {
     const { openModal } = useModal();
-    // function handleEditClick(name: string) {
-    //     console.log(`Edit ${name}`);
-    // }
-    // function handleDeleteClick(name: string) {
-    //     console.log(`Delete ${name}`);
-    // }
+
     return (
         <PrimaryCard
             title={name}
@@ -35,7 +30,7 @@ export default function PotsCard({
             editLabel="Edit Pot"
             deleteLabel="Delete Pot"
             onEditClick={() => openModal("edit-pot", { pot: name })}
-            onDeleteClick={() => openModal("delete-pot", { pot: name })}>
+            onDeleteClick={() => openModal("delete-pot", { name: name, type: "pot" })}>
             <div>
                 <div className="flex justify-between items-center pb-[var(--spacing-sm)]">
                     <span className="text-[var(--grey-500)] text-[length:var(--font-size-sm)]">Total Saved</span>
@@ -56,6 +51,7 @@ export default function PotsCard({
                     buttonText="Add Money"
                     onClick={() =>
                         openModal("edit-savings", {
+                            potName: name,
                             modalType: "add",
                             theme: theme,
                             totalSaved: totalSaved,
@@ -68,6 +64,7 @@ export default function PotsCard({
                     buttonText="Withdraw"
                     onClick={() =>
                         openModal("edit-savings", {
+                            potName: name,
                             modalType: "withdraw",
                             theme: theme,
                             totalSaved: totalSaved,
