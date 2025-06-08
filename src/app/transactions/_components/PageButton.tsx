@@ -7,6 +7,7 @@ const PageButton = ({
     currentPage: number;
     onClick: (pageNumber: number) => void;
 }) => {
+
     return (
         <button
             className={

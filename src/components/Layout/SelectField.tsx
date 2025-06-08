@@ -33,11 +33,7 @@ const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
                 </Label>
 
                 <ListboxButton
-                    // style={{ minWidth: minWidth || "auto" }}
-                    className={
-                        // (colorTag || prefix ? `ps-[48px] ` : `ps-[var(--spacing-md)] `) +
-                        ` md:relative md:pe-[var(--spacing-xxl)] md:ps-[var(--spacing-md)] md:py-[var(--spacing-xs)] md:rounded-[var(--spacing-xxs)] md:border-1 md:border-[var(--beige-500)] md:bg-[var(--white)] md:text-left text-[var(--grey-900)] md:focus:border-[var(--grey-900)] md:focus:outline-none`
-                    }>
+                    className={` md:relative md:pe-[var(--spacing-xxl)] md:ps-[var(--spacing-md)] md:py-[var(--spacing-xs)] md:rounded-[var(--spacing-xxs)] md:border-1 md:border-[var(--beige-500)] md:bg-[var(--white)] md:text-left text-[var(--grey-900)] md:focus:border-[var(--grey-900)] md:focus:outline-none`}>
                     <span className="hidden md:inline">
                         {options.find((opt: { value: string }) => opt.value === currentValue)?.label}
                     </span>
