@@ -18,7 +18,7 @@ export function formatDate(date: string | number) {
 
 export function updateSearchParam(params: URLSearchParams, key: string, value: string | number) {
     const newParams = new URLSearchParams(params);
-    newParams.set(key, value);
+    newParams.set(key, value.toString());
     return newParams;
 }
 

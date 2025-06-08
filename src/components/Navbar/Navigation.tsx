@@ -49,7 +49,6 @@ export default function Navigation() {
                 <ul className="flex justify-between items-center lg:flex-col lg:gap-[var(--spacing-xxxs)] lg:pt-[var(--spacing-lg)] lg:pr-[var(--spacing-lg)]">
                     {links.map((link) => (
                         <NavIcon
-                            icon={link.icon}
                             key={link.label}
                             label={link.label}
                             text={link.text}

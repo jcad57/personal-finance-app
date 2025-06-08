@@ -21,7 +21,7 @@ export default function InputField({
     const router = useRouter();
     const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
-    function handleInputChange(value: string) {
+    function handleInputChange(value: number | string) {
         const newParams = updateSearchParam(searchParams, "search", value);
         if (debounceRef.current) {
             clearTimeout(debounceRef.current);
