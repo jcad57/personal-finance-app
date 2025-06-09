@@ -1,5 +1,5 @@
-// import { Field, Fieldset, Input, Label, Select } from "@headlessui/react";
 import { useModal } from "@/context/ModalContext";
+import { useEffect } from "react";
 
 import EmptyCard from "../EmptyCard";
 import AddEditBudget from "./AddEditBudget";
@@ -9,6 +9,17 @@ import DeleteItem from "./DeleteItem";
 
 const Modal = () => {
     const { modalType, isModalOpen, modalProps } = useModal();
+
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isModalOpen]);
 
     if (!isModalOpen) return null;
 
