@@ -9,13 +9,15 @@ import DeleteItem from "./DeleteItem";
 
 const Modal = () => {
     const { modalType, isModalOpen, modalProps } = useModal();
+    const scrollY = window.scrollY;
 
     useEffect(() => {
         if (isModalOpen) {
             document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = "auto";
+            document.body.style.overflow = "";
         }
+
         return () => {
             document.body.style.overflow = "";
         };
@@ -48,7 +50,8 @@ const Modal = () => {
         <div
             role="dialog"
             aria-modal="true"
-            className={`absolute top-0 left-0 w-full h-full z-1000 bg-black/55 transition-all duration-500 ease-in-out`}>
+            className={`absolute left-0 w-full h-full z-1000 bg-black/55 transition-all duration-500 ease-in-out`}
+            style={{ top: `${scrollY}px` }}>
             <div className="grid items-center justify-center mx-[var(--spacing-md)] h-full ">
                 <div className="w-screen max-w-[560px] px-[var(--spacing-md)]">
                     <EmptyCard>{renderContent()}</EmptyCard>

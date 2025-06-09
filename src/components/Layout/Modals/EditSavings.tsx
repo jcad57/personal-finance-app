@@ -65,25 +65,34 @@ const EditSavings = ({ ...modalProps }) => {
                     </span>
                 </div>
             </div>
-            <Field className="relative">
-                <div className="absolute bottom-[13px] left-[20px]">
-                    <span className="text-[var(--grey-500)]">$</span>
-                </div>
-                <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">
-                    Amount to {modalProps.modalType === "add" ? "Add" : "Withdraw"}
-                </Label>
-                <Input
-                    name="add-"
-                    className="appearance-none w-full ps-[42px] pe-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none"
-                    value={amountToAdd || amountToWithdraw || ""}
-                    onChange={(e) => handleChange(Number(e.target.value))}
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    closeModal();
+                }}>
+                <Field className="relative  mb-[var(--spacing-md)]">
+                    <div className="absolute bottom-[13px] left-[20px]">
+                        <span className="text-[var(--grey-500)]">$</span>
+                    </div>
+                    <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">
+                        Amount to {modalProps.modalType === "add" ? "Add" : "Withdraw"}
+                    </Label>
+                    <Input
+                        name="add-"
+                        className="appearance-none w-full ps-[42px] pe-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none"
+                        value={amountToAdd || amountToWithdraw || ""}
+                        onChange={(e) => handleChange(Number(e.target.value))}
+                        autoComplete="off"
+                        placeholder="e.g. 100"
+                        type="number"
+                        required
+                    />
+                </Field>
+                <Button
+                    primary
+                    buttonText={modalProps.modalType === "withdraw" ? `Confirm Withdraw` : "Confirm Addition"}
                 />
-            </Field>
-            <Button
-                primary
-                buttonText={modalProps.modalType === "withdraw" ? `Confirm Withdraw` : "Confirm Addition"}
-                onClick={closeModal}
-            />
+            </form>
             <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">
                 DEMO MODE: Changes will not be saved
             </p>
@@ -106,12 +115,10 @@ const ProgressBar = ({
     amountToAdd: number;
     amountToWithdraw: number;
 }) => {
-    //TODO: Fix the progress bar width calculation to handle edge cases
     const colorBarWidth =
         modalType === "add" ? (currentSaved / target) * 100 : ((currentSaved - amountToWithdraw) / target) * 100;
 
-    // const blackBarWidth =
-    //     modalProps.modalType === "add" ? (amountToAdd / target) * 100 : (amountToWithdraw / target) * 100 || 0;
+    // const maxColorBarWidth = ((target - currentSaved) / target) * 100;
 
     return (
         <div className="flex w-full gap-[2px] h-[8px] bg-[var(--beige-100)] rounded-[4px]">

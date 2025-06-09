@@ -7,13 +7,12 @@ const PageButton = ({
     currentPage: number;
     onClick: (pageNumber: number) => void;
 }) => {
-
     return (
         <button
             className={
                 (pageNumber === currentPage
                     ? `bg-[black] outline-[black] text-[white]`
-                    : `text-[var(--grey-900)] outline-[var(--beige-500)]`) +
+                    : `text-[var(--grey-900)] outline-[var(--beige-500)] hover:bg-[var(--beige-500)] hover:text-[white]`) +
                 ` outline-1 text-[length:var(--font-size-sm)] rounded-[8px] w-[40px] h-[40px]`
             }
             onClick={() => onClick(pageNumber)}>

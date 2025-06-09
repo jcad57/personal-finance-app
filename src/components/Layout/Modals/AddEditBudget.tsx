@@ -72,12 +72,10 @@ const AddEditBudget = ({ ...modalProps }) => {
                 selectedCategory={selectedCategory}
                 selectedTheme={selectedTheme}
                 setSelectedTheme={setSelectedTheme}
-            />
-            <Button
-                primary
                 buttonText={modalProps.modalType === "add" ? "Add Budget" : "Save Changes"}
-                onClick={closeModal}
+                closeModal={closeModal}
             />
+
             <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">
                 DEMO MODE: Changes will not be saved
             </p>
@@ -92,86 +90,104 @@ type ModalFormProps = {
     selectedCategory: { value: string; label: string };
     selectedTheme: { value: string; label: string };
     setSelectedTheme: (theme: { value: string; label: string }) => void;
+    buttonText: string;
+    closeModal: () => void;
 };
-const ModalForm = ({ setSelectedCategory, selectedCategory, selectedTheme, setSelectedTheme }: ModalFormProps) => {
+const ModalForm = ({
+    setSelectedCategory,
+    selectedCategory,
+    selectedTheme,
+    setSelectedTheme,
+    buttonText,
+    closeModal,
+}: ModalFormProps) => {
     return (
-        <Fieldset className="w-full grid gap-[var(--spacing-s)]">
-            <Field className="relative flex flex-col gap-[4px]">
-                <Image
-                    src={caretDown}
-                    width={16}
-                    height={16}
-                    alt=""
-                    className="absolute right-[8px] bottom-[16px] translate-[-50%]"
-                />
-                <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">
-                    Budget Category
-                </Label>
-                <Listbox value={selectedCategory} onChange={setSelectedCategory}>
-                    <ListboxButton className="appearance-none pe-[var(--spacing-xxl)] ps-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none">
-                        {selectedCategory.label}
-                    </ListboxButton>
-                    <ListboxOptions
-                        transition
-                        className="absolute top-[78px] z-10 w-full max-h-[300px] overflow-y-auto no-scrollbar px-[var(--spacing-md)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] mt-[var(--spacing-xxxs)] opacity-100 transition duration-100 ease-in data-leave:data-closed:opacity-0 focus:border-[var(--grey-900)] focus:outline-none">
-                        {budgetCategories.map((category) => (
-                            <ListboxOption
-                                key={category.value}
-                                value={category}
-                                className="data-selected:font-bold border-[var(--grey-100)] not-first:border-y-[1px] py-[var(--spacing-xs)] cursor-pointer">
-                                {category.label}
-                            </ListboxOption>
-                        ))}
-                    </ListboxOptions>
-                </Listbox>
-            </Field>
-            <Field className="relative flex flex-col gap-[4px]">
-                <div className="absolute bottom-[13px] left-[20px]">
-                    <span className="text-[var(--grey-500)]">$</span>
-                </div>
-                <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">
-                    Maximum Spend
-                </Label>
-                <Input
-                    name="budget-category"
-                    className="appearance-none ps-[42px] pe-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none"
-                    placeholder="e.g. 2000"
-                    type="number"
-                />
-            </Field>
-            <Field className="relative flex flex-col gap-[4px]">
-                <Image
-                    src={caretDown}
-                    width={16}
-                    height={16}
-                    alt=""
-                    className="absolute right-[8px] bottom-[16px] translate-[-50%]"
-                />
-                <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">Theme</Label>
-                <Listbox value={selectedTheme} onChange={setSelectedTheme}>
-                    <ListboxButton className="flex items-center gap-[var(--spacing-xs)] appearance-none pe-[var(--spacing-xxl)] ps-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none">
-                        <div
-                            className="w-[16px] h-[16px] rounded-full"
-                            style={{ backgroundColor: `var(--${selectedTheme.value})` }}></div>
-                        {selectedTheme.label}
-                    </ListboxButton>
-                    <ListboxOptions
-                        transition
-                        className="absolute top-[78px] z-10 w-full max-h-[200px] overflow-y-auto no-scrollbar px-[var(--spacing-md)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] mt-[var(--spacing-xxxs)] opacity-100 transition duration-100 ease-in data-leave:data-closed:opacity-0 focus:border-[var(--grey-900)] focus:outline-none">
-                        {budgetThemes.map((theme) => (
-                            <ListboxOption
-                                key={theme.value}
-                                value={theme}
-                                className="flex items-center gap-[var(--spacing-xs)] data-selected:font-bold border-[var(--grey-100)] not-first:border-y-[1px] py-[var(--spacing-xs)] cursor-pointer">
-                                <div
-                                    className="w-[16px] h-[16px] rounded-full"
-                                    style={{ backgroundColor: `var(--${theme.value})` }}></div>
-                                {theme.label}
-                            </ListboxOption>
-                        ))}
-                    </ListboxOptions>
-                </Listbox>
-            </Field>
-        </Fieldset>
+        <form
+            onSubmit={(e) => {
+                e.preventDefault();
+                closeModal();
+            }}>
+            <Fieldset className="w-full grid gap-[var(--spacing-s)] mb-[var(--spacing-md)]">
+                <Field className="relative flex flex-col gap-[4px]">
+                    <Image
+                        src={caretDown}
+                        width={16}
+                        height={16}
+                        alt=""
+                        className="absolute right-[8px] bottom-[16px] translate-[-50%]"
+                    />
+                    <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">
+                        Budget Category
+                    </Label>
+                    <Listbox value={selectedCategory} onChange={setSelectedCategory}>
+                        <ListboxButton className="appearance-none pe-[var(--spacing-xxl)] ps-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none">
+                            {selectedCategory.label}
+                        </ListboxButton>
+                        <ListboxOptions
+                            transition
+                            className="absolute top-[78px] z-10 w-full max-h-[300px] overflow-y-auto no-scrollbar px-[var(--spacing-md)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] mt-[var(--spacing-xxxs)] opacity-100 transition duration-100 ease-in data-leave:data-closed:opacity-0 focus:border-[var(--grey-900)] focus:outline-none">
+                            {budgetCategories.map((category) => (
+                                <ListboxOption
+                                    key={category.value}
+                                    value={category}
+                                    className="data-selected:font-bold border-[var(--grey-100)] not-first:border-y-[1px] py-[var(--spacing-xs)] cursor-pointer">
+                                    {category.label}
+                                </ListboxOption>
+                            ))}
+                        </ListboxOptions>
+                    </Listbox>
+                </Field>
+                <Field className="relative flex flex-col gap-[4px]">
+                    <div className="absolute bottom-[13px] left-[20px]">
+                        <span className="text-[var(--grey-500)]">$</span>
+                    </div>
+                    <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">
+                        Maximum Spend
+                    </Label>
+                    <Input
+                        name="budget-category"
+                        className="appearance-none ps-[42px] pe-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none invalid:border-[var(--red)]"
+                        placeholder="e.g. 2000"
+                        type="number"
+                        required
+                        autoComplete="off"
+                    />
+                </Field>
+                <Field className="relative flex flex-col gap-[4px]">
+                    <Image
+                        src={caretDown}
+                        width={16}
+                        height={16}
+                        alt=""
+                        className="absolute right-[8px] bottom-[16px] translate-[-50%]"
+                    />
+                    <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">Theme</Label>
+                    <Listbox value={selectedTheme} onChange={setSelectedTheme}>
+                        <ListboxButton className="flex items-center gap-[var(--spacing-xs)] appearance-none pe-[var(--spacing-xxl)] ps-[var(--spacing-md)] py-[var(--spacing-xs)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] focus:border-[var(--grey-900)] focus:outline-none">
+                            <div
+                                className="w-[16px] h-[16px] rounded-full"
+                                style={{ backgroundColor: `var(--${selectedTheme.value})` }}></div>
+                            {selectedTheme.label}
+                        </ListboxButton>
+                        <ListboxOptions
+                            transition
+                            className="absolute top-[78px] z-10 w-full max-h-[200px] overflow-y-auto no-scrollbar px-[var(--spacing-md)] rounded-[var(--spacing-xxs)] border-1 border-[var(--beige-500)] bg-[var(--white)] text-left text-[var(--grey-900)] mt-[var(--spacing-xxxs)] opacity-100 transition duration-100 ease-in data-leave:data-closed:opacity-0 focus:border-[var(--grey-900)] focus:outline-none">
+                            {budgetThemes.map((theme) => (
+                                <ListboxOption
+                                    key={theme.value}
+                                    value={theme}
+                                    className="flex items-center gap-[var(--spacing-xs)] data-selected:font-bold border-[var(--grey-100)] not-first:border-y-[1px] py-[var(--spacing-xs)] cursor-pointer">
+                                    <div
+                                        className="w-[16px] h-[16px] rounded-full"
+                                        style={{ backgroundColor: `var(--${theme.value})` }}></div>
+                                    {theme.label}
+                                </ListboxOption>
+                            ))}
+                        </ListboxOptions>
+                    </Listbox>
+                </Field>
+            </Fieldset>
+            <Button primary buttonText={buttonText} />
+        </form>
     );
 };

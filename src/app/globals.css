@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @layer utilities {
     .no-scrollbar {
         scrollbar-width: none; /* Firefox */
@@ -8,6 +9,15 @@
         display: none; /* Chrome, Safari, Opera */
     }
 }
+
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
 @font-face {
     font-family: "PublicSans";
     src: url("/assets/fonts/PublicSans-VariableFont-wght.ttf") format("truetype");
