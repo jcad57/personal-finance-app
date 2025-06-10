@@ -1,11 +1,13 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+
 import Image from "next/image";
 import ellipsisIcon from "../../../public/assets/images/icon-ellipsis.svg";
+
 interface DropDownProps {
     editLabel?: string;
     deleteLabel?: string;
-    onEditClick?: () => void;
-    onDeleteClick?: () => void;
+    onEditClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    onDeleteClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const DropDown = ({ editLabel, deleteLabel, onEditClick, onDeleteClick }: DropDownProps) => {

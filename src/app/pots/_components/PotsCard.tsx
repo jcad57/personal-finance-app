@@ -29,8 +29,14 @@ export default function PotsCard({
             altText="Pots"
             editLabel="Edit Pot"
             deleteLabel="Delete Pot"
-            onEditClick={() => openModal("edit-pot", { pot: name })}
-            onDeleteClick={() => openModal("delete-pot", { name: name, type: "pot" })}>
+            onEditClick={(e) => {
+                e.stopPropagation();
+                openModal("edit-pot", { pot: name });
+            }}
+            onDeleteClick={(e) => {
+                e.stopPropagation();
+                openModal("delete-pot", { name: name, type: "pot" });
+            }}>
             <div>
                 <div className="flex justify-between items-center pb-[var(--spacing-sm)]">
                     <span className="text-[var(--grey-500)] text-[length:var(--font-size-sm)]">Total Saved</span>

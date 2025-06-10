@@ -12,7 +12,7 @@ import BillItemsTable from "./BillItemsTable";
 
 const RecurringBillsWrapper = ({ recurringBills }: { recurringBills: RecurringBillsProps[] }) => {
     const searchParams = useSearchParams();
-    const sortBy = searchParams.get("sort") || "time_asc";
+    const sortBy = searchParams.get("sort") || "time_desc";
     const filterBy = searchParams.get("filter") || "all";
     const searchBy = searchParams.get("search") || "";
 

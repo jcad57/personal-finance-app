@@ -26,8 +26,14 @@ const BudgetCategories = ({
                         ellipsis
                         editLabel="Edit Budget"
                         deleteLabel="Delete Budget"
-                        onEditClick={() => openModal("edit-budget", { budgetCategory: item.category })}
-                        onDeleteClick={() => openModal("delete-budget", { name: item.category, type: "budget" })}>
+                        onEditClick={(e) => {
+                            e.stopPropagation();
+                            openModal("edit-budget", { budgetCategory: item.category });
+                        }}
+                        onDeleteClick={(e) => {
+                            e.stopPropagation();
+                            openModal("delete-budget", { name: item.category, type: "budget" });
+                        }}>
                         <BudgetCategoryItemWrapper
                             transactionData={transactionData}
                             category={item.category}

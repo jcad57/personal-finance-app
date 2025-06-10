@@ -78,8 +78,8 @@ export interface CardHeaderProps {
     altText?: string;
     editLabel?: string;
     deleteLabel?: string;
-    onEditClick?: () => void;
-    onDeleteClick?: () => void;
+    onEditClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    onDeleteClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export interface SecondaryCardProps {

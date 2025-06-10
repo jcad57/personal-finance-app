@@ -118,8 +118,6 @@ const ProgressBar = ({
     const colorBarWidth =
         modalType === "add" ? (currentSaved / target) * 100 : ((currentSaved - amountToWithdraw) / target) * 100;
 
-    // const maxColorBarWidth = ((target - currentSaved) / target) * 100;
-
     return (
         <div className="flex w-full gap-[2px] h-[8px] bg-[var(--beige-100)] rounded-[4px]">
             <div
