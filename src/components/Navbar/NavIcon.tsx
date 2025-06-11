@@ -36,6 +36,7 @@ export default function NavIcon({ label, text, isActive, expandNav }: Navigation
             }>
             <Link
                 href={`/${label}`}
+                aria-label={text}
                 className="w-full flex items-center justify-center md:flex-col md:gap-2 lg:flex-row lg:justify-start">
                 <div className={(isActive ? `lg:ml-[28px]` : `lg:ml-[32px]`) + ` lg:mr-[16px]`}>
                     {renderIcon(label, isActive)}
