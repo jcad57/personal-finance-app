@@ -14,7 +14,7 @@ const DropDown = ({ editLabel, deleteLabel, onEditClick, onDeleteClick }: DropDo
     return (
         <Menu>
             <MenuButton>
-                <Image src={ellipsisIcon} width={16} height={16} alt="" />
+                <Image src={ellipsisIcon} width={16} height={16} alt="Expand Menu" />
             </MenuButton>
 
             <MenuItems

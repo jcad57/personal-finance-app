@@ -64,7 +64,7 @@ export default function InputField({
                         src={icon === "search" ? searchIcon : caretDown}
                         width={16}
                         height={16}
-                        alt=""
+                        alt="Icon"
                         className="absolute right-[8px] top-[50%] translate-[-50%] cursor-pointer"
                     />
                 )}

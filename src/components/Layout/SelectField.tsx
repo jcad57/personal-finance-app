@@ -41,7 +41,7 @@ const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
                         src={caretDown}
                         width={16}
                         height={16}
-                        alt=""
+                        alt="Expand Select"
                         className="absolute hidden md:block right-[8px] top-[50%] translate-[-50%]"
                     />
 

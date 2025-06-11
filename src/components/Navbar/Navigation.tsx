@@ -34,14 +34,14 @@ export default function Navigation() {
                         src={navLogoFull}
                         width={121}
                         height={22}
-                        alt=""
+                        alt="Finance App Logo Full"
                     />
                     <Image
                         className={`absolute ${expandNav ? `opacity-0 delay-200 ` : `opacity-100`} transition-opacity`}
                         src={navLogoMini}
                         width={14}
                         height={22}
-                        alt=""
+                        alt="Finance App Logo Mini"
                     />
                 </Link>
             </div>
@@ -64,7 +64,7 @@ export default function Navigation() {
                         src={minimizeMenuIcon}
                         width={22}
                         height={22}
-                        alt=""
+                        alt="Expand or Minimize Menu"
                         className={(!expandNav && `rotate-180`) + ` mx-2 transition duration-75 ease-in-out`}
                     />
 

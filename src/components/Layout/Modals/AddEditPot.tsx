@@ -138,7 +138,7 @@ const ModalForm = ({
                         src={caretDown}
                         width={16}
                         height={16}
-                        alt=""
+                        alt="Expand Select"
                         className="absolute right-[8px] bottom-[16px] translate-[-50%]"
                     />
                     <Label className="font-bold text-[length:var(--font-size-xs)] text-[var(--grey-500)]">Theme</Label>
