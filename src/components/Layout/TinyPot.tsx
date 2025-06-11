@@ -6,7 +6,7 @@ export default function TinyPot({ title, amount, theme }: { title?: string; amou
         <div className="flex">
             <VerticalAccent theme={theme} />
             <div className="flex flex-col gap-[4px] ml-[16px]">
-                <h5 className="text-[length:var(--font-size-xs)] text-[var(--grey-500)]">{title}</h5>
+                <h4 className="text-[length:var(--font-size-xs)] text-[var(--grey-500)]">{title}</h4>
                 <span
                     className={
                         (amount >= 0 ? `text-[var(--grey-900)] ` : `text-[var(--red)] `) +

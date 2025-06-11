@@ -5,7 +5,7 @@ export default function TransactionItem({ date, avatar, name, amount, category }
     return (
         <div className="flex justify-between [&:not(:first-child)]:border-t-[1px] [&:not(:last-child)&:not(:first-child)]:py-[var(--spacing-md)] [&:last-child]:pt-[var(--spacing-md)] [&:first-child]:pb-[var(--spacing-md)] border-[var(--grey-100)]">
             <div className="flex gap-[var(--spacing-xs)] items-center ">
-                <Image src={avatar} width={36} height={36} alt="avatar" className="rounded-full" />
+                <Image src={avatar} width={36} height={36} alt="avatar" className="rounded-full" aria-hidden={true} />
                 <div className="flex flex-col gap-[var(--spacing-xxxs)]">
                     <p className="font-bold">{name}</p>
                     <p className="text-[var(--grey-500)] text-[length:var(--font-size-xs)]">{category}</p>

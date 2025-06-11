@@ -12,7 +12,7 @@ export default async function PotsOverview() {
         <PrimaryCard title="Pots" linkTo="pots" more moreText="See Details" altText="Pots">
             <div className="grid gap-[var(--spacing-sm)] md:grid-cols-2 ">
                 <div className="flex align-center p-[var(--card-padding)] gap-[var(--spacing-sm)] bg-[var(--beige-100)] rounded-[var(--card-border-radius)]">
-                    <Image src={totalSavedIcon} alt="Pot Icon" width={32} height={32} />
+                    <Image src={totalSavedIcon} alt="Pot Icon" width={32} height={32} aria-hidden={true} />
                     <div>
                         <h4 className="text-[var(--grey-500)] text-[length:var(--font-size-sm)] mb-[10px]">
                             Total Saved
