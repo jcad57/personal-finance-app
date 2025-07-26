@@ -8,14 +8,17 @@ import PotsOverviewCard from "@/app/home/_components/PotsOverviewCard";
 import RecurringBills from "@/app/home/_components/RecurringBills/RecurringBillsOverview";
 import SecondaryCard from "@/components/Layout/Cards/SecondaryCard";
 import Loading from "@/components/Layout/Loading";
+import Button from "@/components/Layout/Button";
 
 export default async function Overview() {
     const overviewData: OverviewDataType = await getOverviewData();
 
     return (
         <main className="overflow-y-auto px-[var(--spacing-sm)] py-[var(--spacing-lg)] pb-[89px] md:px-[40px] md:pt-[32px] md:pb-[123px] lg:py-[32px] md:h-full lg:w-full ">
+            <div className="flex justify-between">
             <h1 className="text-[length:var(--font-size-xl)] font-bold">Overview</h1>
-
+            <Button isLogout />
+            </div>
             <section
                 id="overview"
                 className="flex flex-col md:flex-row gap-[var(--spacing-xs)] md:gap-[var(--spacing-lg)] my-[var(--spacing-xl)]">

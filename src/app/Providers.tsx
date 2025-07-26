@@ -1,14 +1,18 @@
 "use client";
 
-import Modal from "@/components/Layout/Modals/Modal";
 import { ModalProvider } from "@/context/ModalContext";
 import { ReactNode } from "react";
 
+import UserAuthProvider from "@/context/UserAuthContext";
+import Modal from "@/components/Layout/Modals/Modal";
+
 export const Providers = ({ children }: { children: ReactNode }) => {
     return (
-        <ModalProvider>
-            <Modal />
-            {children}
-        </ModalProvider>
+            <UserAuthProvider>
+                <ModalProvider>
+                    <Modal />
+                    {children}
+                </ModalProvider>
+            </UserAuthProvider>
     );
 };

@@ -1,4 +1,5 @@
-import { UseFormRegister } from "react-hook-form";
+
+import { useFormContext } from "react-hook-form";
 
 interface FormValues {
     name: string;
@@ -8,14 +9,16 @@ interface FormValues {
 
 export default function Login({
     setFormType,
-    register,
+    handleSignIn
 }: {
     setFormType: (formType: string) => void;
-    register: UseFormRegister<FormValues>;
+    handleSignIn: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }) {
+    const { register } = useFormContext<FormValues>();
+
     return (
         <>
-            <form className="flex flex-col">
+            <form className="flex flex-col" onSubmit={(e) => handleSignIn(e)}>
                 <h1 className="text-[length:var(--font-size-xl)] font-bold leading-[120%]">Login</h1>
                 <div className="mt-[var(--spacing-xl)]">
                     <label

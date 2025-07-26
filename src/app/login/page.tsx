@@ -3,25 +3,38 @@
 import Image from "next/image";
 import logo from "../../../public/assets/images/logo-large.svg";
 
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
+import { useUserAuth } from "@/context/UserAuthContext";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import LoginForm from "@/components/Auth/LoginForm";
 import SignupForm from "@/components/Auth/SignupForm";
+import LoginForm from "@/components/Auth/LoginForm";
+import Loading from "@/components/Layout/Loading";
+
 
 const authImg = "/assets/images/illustration-authentication.svg";
 export default function Login() {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [formType, setFormType] = useState("login");
-    const { register } = useForm({
-        defaultValues: {
-            email: "",
-            password: "",
-            name: "",
-        },
-    });
+    const methods = useForm();
+    const {getValues} = methods;
+    const {signIn} = useUserAuth();
+    const router = useRouter();
+
+    const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
+        e.preventDefault();
+        const { email, password } = getValues();
+        const user = await signIn(email, password);
+        if (user) {
+            router.push("/home");
+        } 
+        setIsLoading(false)
+    }
 
     return (
-        // TODO: Add password visible icon
+        <FormProvider {...methods}>
         <div className="bg-[var(--beige-300)] flex flex-col h-screen lg:flex lg:flex-row lg:p-[var(--spacing-lg)] w-full">
             <header className="flex justify-center items-center bg-[var(--grey-900)] py-[var(--spacing-lg)] rounded-b-lg lg:hidden">
                 <Image src={logo} width={150} height={80} alt="logo" />
@@ -43,11 +56,16 @@ export default function Login() {
                 </div>
             </header>
             <main className="flex flex-col justify-center items-center bg-[var(--beige-300)] px-[var(--spacing-lg)] h-full lg:mx-auto">
-                <div className="flex flex-col w-full bg-[var(--white)] px-[var(--spacing-md)] py-[var(--spacing-lg)] rounded-xl max-w-[562px]">
-                    {formType === "login" && <LoginForm setFormType={setFormType} register={register} />}
-                    {formType === "sign-up" && <SignupForm setFormType={setFormType} register={register} />}
-                </div>
+                {
+                    isLoading ? <Loading /> :
+                    <div className="flex flex-col w-full bg-[var(--white)] px-[var(--spacing-md)] py-[var(--spacing-lg)] rounded-xl max-w-[562px]">
+                
+                    {formType === "login" && <LoginForm setFormType={setFormType} handleSignIn={handleSignIn}/>}
+                    {formType === "sign-up" && <SignupForm setFormType={setFormType}  />}
+                    </div>
+                }
             </main>
         </div>
+        </FormProvider>
     );
 }

@@ -1,4 +1,4 @@
-import { UseFormRegister } from "react-hook-form";
+import { useFormContext, UseFormRegister } from "react-hook-form";
 
 interface FormValues {
     email: string;
@@ -7,11 +7,12 @@ interface FormValues {
 }
 export default function SignupForm({
     setFormType,
-    register,
+
 }: {
     setFormType: (formType: string) => void;
-    register: UseFormRegister<FormValues>;
+
 }) {
+    const { register } = useFormContext<FormValues>();
     return (
         <>
             <form className="flex flex-col">
