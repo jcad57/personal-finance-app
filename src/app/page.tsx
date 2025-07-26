@@ -1,23 +1,24 @@
 "use client";
+import Loading from "@/components/Layout/Loading";
+import { useUserAuth } from "@/context/UserAuthContext";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
     const router = useRouter();
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const { session } = useUserAuth();
 
     useEffect(() => {
-        setIsLoggedIn(true);
-        if (!isLoggedIn) {
+        if (!session) {
             router.push("/login");
         } else {
             router.push("/home");
         }
-    }, [isLoggedIn, router]);
+    }, [session, router]);
 
     return (
         <div className="grid items-center justify-center min-h-dvh w-full">
-            <h1>Loading...</h1>
+            <Loading />
         </div>
     );
 }

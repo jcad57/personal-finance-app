@@ -12,20 +12,19 @@ import NavIcon from "./NavIcon";
 import Image from "next/image";
 import Link from "next/link";
 
-// TODO: properly set up SVG files
 export default function Navigation() {
     const pathname = usePathname();
     const [expandNav, setExpandNav] = useState(true);
-    const {session} = useUserAuth();
+    const { session } = useUserAuth();
 
     const handleExpandNav = () => {
         setExpandNav(!expandNav);
     };
-    
+
     if (!session) return null;
 
     return (
-            <nav
+        <nav
             className={`transition-all duration-300 ease-in-out overflow-x-hidden
                 ${expandNav ? ` lg:w-[330px] ` : ` lg:w-[112px]`}
                 w-full bg-[var(--grey-900)] fixed bottom-0 rounded-t-lg pt-2 px-[var(--spacing-lg)] md:px-[40px] lg:relative lg:max-w-[300px] lg:px-0 lg:flex lg:flex-col lg:rounded-t-none lg:rounded-r-[var(--spacing-sm)] lg:pb-[var(--spacing-xxl)] z-100`}>
@@ -80,7 +79,6 @@ export default function Navigation() {
                     </span>
                 </div>
             </div>
-        </nav> 
-        
+        </nav>
     );
 }

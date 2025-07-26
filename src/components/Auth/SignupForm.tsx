@@ -1,4 +1,4 @@
-import { useFormContext, UseFormRegister } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 interface FormValues {
     email: string;
@@ -6,18 +6,25 @@ interface FormValues {
     password: string;
 }
 export default function SignupForm({
-    setFormType,
-
+    handleFormChange,
+    handleSignUp,
+    authError,
 }: {
-    setFormType: (formType: string) => void;
-
+    handleFormChange: (formType: string) => void;
+    handleSignUp: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+    authError: string;
 }) {
     const { register } = useFormContext<FormValues>();
     return (
         <>
-            <form className="flex flex-col">
+            <form className="flex flex-col" onSubmit={(e) => handleSignUp(e)}>
                 <h1 className="text-[length:var(--font-size-xl)] font-bold leading-[120%]">Sign Up</h1>
                 <div className="mt-[var(--spacing-xl)]">
+                    {authError && (
+                        <div>
+                            <span className="text-[var(--red)] text-[length:var(--font-size-sm)]">{authError}</span>
+                        </div>
+                    )}
                     <label
                         htmlFor="name"
                         className="text-[length:var(--font-size-xs)] font-bold text-[var(--grey-500)] ">
@@ -61,7 +68,9 @@ export default function SignupForm({
                     </button>
                     <p className="text-xs text-[var(--grey-500)] text-center">
                         Already have an account?{" "}
-                        <a className="underline font-bold text-[var(--grey-900)]" onClick={() => setFormType("login")}>
+                        <a
+                            className="underline font-bold text-[var(--grey-900)]"
+                            onClick={() => handleFormChange("login")}>
                             Login
                         </a>
                     </p>

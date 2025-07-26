@@ -1,4 +1,3 @@
-
 import { useFormContext } from "react-hook-form";
 
 interface FormValues {
@@ -8,11 +7,13 @@ interface FormValues {
 }
 
 export default function Login({
-    setFormType,
-    handleSignIn
+    handleFormChange,
+    handleSignIn,
+    authError,
 }: {
-    setFormType: (formType: string) => void;
+    handleFormChange: (formType: string) => void;
     handleSignIn: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+    authError: string;
 }) {
     const { register } = useFormContext<FormValues>();
 
@@ -21,6 +22,11 @@ export default function Login({
             <form className="flex flex-col" onSubmit={(e) => handleSignIn(e)}>
                 <h1 className="text-[length:var(--font-size-xl)] font-bold leading-[120%]">Login</h1>
                 <div className="mt-[var(--spacing-xl)]">
+                    {authError && (
+                        <div>
+                            <span className="text-[var(--red)] text-[length:var(--font-size-sm)]">{authError}</span>
+                        </div>
+                    )}
                     <label
                         htmlFor="email"
                         className="text-[length:var(--font-size-xs)] font-bold text-[var(--grey-500)] ">
@@ -52,7 +58,7 @@ export default function Login({
                         Need to create an account?{" "}
                         <a
                             className="underline font-bold text-[var(--grey-900)]"
-                            onClick={() => setFormType("sign-up")}>
+                            onClick={() => handleFormChange("sign-up")}>
                             Sign Up
                         </a>
                     </p>
