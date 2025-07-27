@@ -56,7 +56,7 @@ export default function Login() {
             setAuthError(error);
         }
         if (data.user !== null) {
-            router.push("/home");
+            router.push("/");
         }
         setIsLoading(false);
     };

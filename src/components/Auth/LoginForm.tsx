@@ -64,6 +64,15 @@ export default function Login({
                     </p>
                 </div>
             </form>
+            <div className="mt-4">
+                <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">FOR DEMO:</p>
+                <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">
+                    email: demo@personal-finance.com
+                </p>
+                <p className="text-center font-bold text-[length:var(--font-size-sm)] text-[var(--red)]">
+                    password: demouser
+                </p>
+            </div>
         </>
     );
 }
