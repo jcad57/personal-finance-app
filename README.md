@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<a id="readme-top"></a>
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+<p>
+    <img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//Screenshot%202025-08-03%20122630.png" alt="Demo Screenshot" width="400">
+    <img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//Screenshot%202025-08-03%20122651.png" alt="Demo Screenshot" width="400">
+    <img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//Screenshot%202025-08-03%20122706.png" alt="Demo Screenshot" width="400">
+</p>
 
-## Getting Started
+  <h3 align="center">Personal Finance App</h3>
+  <p align="center">
+    A Level 5 Guru Challenge from <a href="https://www.frontendmentor.io/challenges/personal-finance-app-JfjtZgyMt1"><strong>Frontend Mentor</strong></a>
+    <br />
+    <br />
+    &middot;
+    <a href="https://personal-finance-app-test-ruddy.vercel.app/">View Demo</a>
+    &middot;
+  </p>
+</div>
 
-First, run the development server:
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A personal finance dashboard that allows users to track their spending, view upcoming bills, set budgets and create savings goals. This was an exciting challenge to work on because it was my first large project I got to build out on my own from front-to-back. It tested my architecture skills as well as problem solving abilities. Some of my favorite features I implemented were all the reusable components (cards, buttons, drop downs, modals, etc.), user login/signup which was a bonus feature to the challenge, and the query/sorting feature using URL params. These were all new challenges for me and it was very rewarding to overcome them. While this may not be the ultimate or more efficient solution to this challenge it still taught me so much which is why I'm so proud to have completed this challenge. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Built With
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* NextJS
+* TypeScript
+* Supabase
+* Tailwind
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<p align="center">
+<img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//style%20guide.png" height="400" >
+</p>
 
-## Learn More
+<!-- HOW TO -->
+## How to get started
 
-To learn more about Next.js, take a look at the following resources:
+* Checkout branch
+* Install dependencies ```npm install```
+* Start development server ```npx next dev```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- CONTACT -->
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[Portfolio](https://jcadev.vercel.app/) 
+[LinkedIn](https://www.linkedin.com/in/jon-deichmann/)
 
-## Deploy on Vercel
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* [ChartJS](https://www.chartjs.org/)
+* [HeadlessUI](https://www.headlessui.com)
+* [React Hook Form](https://react-hook-form.com/)
+* [Google Icons](https://fonts.google.com/icons)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
