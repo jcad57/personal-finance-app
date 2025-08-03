@@ -42,6 +42,10 @@ A personal finance dashboard that allows users to track their spending, view upc
 * Install dependencies ```npm install```
 * Start development server ```npx next dev```
 
+## Future Enhancements
+
+I would like to add more functionality to this instead of it just being a demo version. User should be able to go in and make real changes to the data, add pots & manage transactions. 
+
 <!-- CONTACT -->
 ## Contact
 
