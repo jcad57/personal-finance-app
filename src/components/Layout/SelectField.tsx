@@ -29,7 +29,7 @@ const SelectField = ({ type, options, minWidth, icon }: SelectFieldProps) => {
         <div className="flex items-center gap-[var(--spacing-xs)]">
             <Listbox value={currentValue} onChange={handleChange}>
                 <Label className="hidden md:inline text-[var(--grey-500)] text-[length:var(--font-size-sm)]">
-                    {options[0].label}
+                    {type[0].toUpperCase() + type.slice(1)}
                 </Label>
 
                 <ListboxButton
