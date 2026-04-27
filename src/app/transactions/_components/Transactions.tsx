@@ -1,5 +1,5 @@
-import { getAllTransactions } from "@/_lib/data-services";
-import { TransactionItemProps } from "@/_lib/types";
+import { getAllTransactions } from "@/lib/data-services";
+import { TransactionItemProps } from "@/lib/types";
 
 import EmptyCard from "@/components/Layout/EmptyCard";
 import FullPageWrapper from "@/components/Layout/FullPageWrapper";
@@ -8,17 +8,17 @@ import TransactionsPageHeader from "./TransactionsPageHeader";
 import AllTransactions from "./AllTransaction";
 
 export default async function Transactions() {
-    const transactions: TransactionItemProps[] = await getAllTransactions();
+  const transactions: TransactionItemProps[] = await getAllTransactions();
 
-    return (
-        <FullPageWrapper>
-            <PageHeader title="Transactions" />
-            <EmptyCard>
-                <div className="flex gap-[var(--spacing-lg)]">
-                    <TransactionsPageHeader />
-                </div>
-                <AllTransactions transactions={transactions} />
-            </EmptyCard>
-        </FullPageWrapper>
-    );
+  return (
+    <FullPageWrapper>
+      <PageHeader title="Transactions" />
+      <EmptyCard>
+        <div className="flex gap-[var(--spacing-lg)]">
+          <TransactionsPageHeader />
+        </div>
+        <AllTransactions transactions={transactions} />
+      </EmptyCard>
+    </FullPageWrapper>
+  );
 }
