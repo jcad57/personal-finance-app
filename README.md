@@ -3,9 +3,11 @@
 <br />
 <div align="center">
 <p>
-    <img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//Screenshot%202025-08-03%20122630.png" alt="Demo Screenshot" width="400">
-    <img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//Screenshot%202025-08-03%20122651.png" alt="Demo Screenshot" width="400">
-    <img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//Screenshot%202025-08-03%20122706.png" alt="Demo Screenshot" width="400">
+<img width="400" alt="style guide" src="https://github.com/user-attachments/assets/fc66ab87-02e3-4680-b303-f424f4afe02e" />
+<img width="400" alt="Screenshot 2025-08-03 122706" src="https://github.com/user-attachments/assets/82c57f82-7b6f-47fc-8f78-c1e2830d5bf9" />
+<img width="400" alt="Screenshot 2025-08-03 122651" src="https://github.com/user-attachments/assets/5ba33a86-6881-4c26-bfba-b2aec2da6b16" />
+<img width="400" alt="Screenshot 2025-08-03 122630" src="https://github.com/user-attachments/assets/29f0ef29-cf84-4595-a86e-4c59ff9d55d4" />
+
 </p>
 
   <h3 align="center">Personal Finance App</h3>
@@ -30,10 +32,6 @@ A personal finance dashboard that allows users to track their spending, view upc
 * TypeScript
 * Supabase
 * Tailwind
-
-<p align="center">
-<img src="https://xyumztdseetaqusauewd.supabase.co/storage/v1/object/public/app-screenshots//style%20guide.png" height="400" >
-</p>
 
 <!-- HOW TO -->
 ## How to get started
